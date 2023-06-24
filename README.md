@@ -1,5 +1,7 @@
 # The Book of RxJS
 
+Welcome to the Book of RxJS!
+
 ## Table of Contents
 
 [Preface](/README.md#preface) | [How to use this book](/README.md#how-to-use-this-book) | [What is RxJS?](/00-what-is-rxjs.md) | [About](/00-about.md)
