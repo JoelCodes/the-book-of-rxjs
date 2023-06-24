@@ -10,7 +10,7 @@ ___
 
 ### [Section I: A Tour of the Library](/section-1/00-home.md)
 
-[1. A Basic Vocabulary](/section-1/01-a-basic-vocabulary.md) | [2. How To Make An Observable](/section-1/02-how-to-make-an-observable.md) | [3. How To Make An Observable](/section-1/03-array-like-operators.md) | [4. RxJS For Processes](/section-1/04-rxjs-for-processes.md) | [5. Combining Observables](/section-1/05-combining-observables.md) | [6. Rx-Specific Operators](/section-1/06-rx-specific-operators.md) | [7. Just My Types](/section-1/07-just-my-types.md) | [8. RxJS Graveyard](/section-1/08-rxjs-graveyard.md)
+[1. A Basic Vocabulary](/section-1/01-a-basic-vocabulary.md) | [2. How To Make An Observable](/section-1/02-how-to-make-an-observable.md) | [3. How To Make An Observable](/section-1/03-array-like-operators.md) | [4. RxJS For Processes](/section-1/04-rxjs-for-processes.md) | [5. Timing](/section-1/05-timing.md) [6. Combining Observables](/section-1/06-combining-observables.md) | [7. Rx-Specific Operators](/section-1/07-rx-specific-operators.md) | [8. Just My Types](/section-1/08-just-my-types.md) | [9. RxJS Graveyard](/section-1/09-rxjs-graveyard.md) | [10. What's Next?](/section-1/10-whats-next.md)
 
 ___
 
