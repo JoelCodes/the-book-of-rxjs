@@ -52,9 +52,9 @@ const entries = Promise.all([
 ]).then(([componentsData, componentReferences]) => {
   return Object.fromEntries(componentsData.map(component => {
     const references = componentReferences[component.name] || [];
-    const content = `* [${component.name}](#${component.link}) - ${component.type}
+    const content = `* [${component.name}](${component.link}) - ${component.type}
 ${
-  references.map(([section, title, link]) => `  * [${section} - ${title}](#${link})`).join('\n')
+  references.map(([section, title, link]) => `  * [${section} - ${title}](${link})`).join('\n')
 }`
     return [component.name, content];
   }));  
