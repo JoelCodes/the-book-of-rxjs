@@ -1,0 +1,1448 @@
+[
+    {
+        "link": "https://rxjs.dev/api/index/const/animationFrame",
+        "type": "const",
+        "name": "animationFrame",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/animationFrames",
+        "type": "pipeable",
+        "name": "animationFrames",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/animationFrameScheduler",
+        "type": "const",
+        "name": "animationFrameScheduler",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ArgumentOutOfRangeError",
+        "type": "interface",
+        "name": "ArgumentOutOfRangeError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/asap",
+        "type": "const",
+        "name": "asap",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/asapScheduler",
+        "type": "const",
+        "name": "asapScheduler",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/async",
+        "type": "const",
+        "name": "async",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/asyncScheduler",
+        "type": "const",
+        "name": "asyncScheduler",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/AsyncSubject",
+        "type": "class",
+        "name": "AsyncSubject",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/audit",
+        "type": "pipeable",
+        "name": "audit",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/auditTime",
+        "type": "pipeable",
+        "name": "auditTime",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/BasicGroupByOptions",
+        "type": "interface",
+        "name": "BasicGroupByOptions",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/BehaviorSubject",
+        "type": "class",
+        "name": "BehaviorSubject",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/bindCallback",
+        "type": "creation",
+        "name": "bindCallback",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/bindNodeCallback",
+        "type": "creation",
+        "name": "bindNodeCallback",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/buffer",
+        "type": "pipeable",
+        "name": "buffer",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/bufferCount",
+        "type": "pipeable",
+        "name": "bufferCount",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/bufferTime",
+        "type": "pipeable",
+        "name": "bufferTime",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/bufferToggle",
+        "type": "pipeable",
+        "name": "bufferToggle",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/bufferWhen",
+        "type": "pipeable",
+        "name": "bufferWhen",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/catchError",
+        "type": "pipeable",
+        "name": "catchError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/combineAll",
+        "type": "const",
+        "name": "combineAll",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/combineLatest",
+        "type": "pipeable",
+        "name": "combineLatest",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/combineLatestAll",
+        "type": "pipeable",
+        "name": "combineLatestAll",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/combineLatestWith",
+        "type": "pipeable",
+        "name": "combineLatestWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/CompleteNotification",
+        "type": "interface",
+        "name": "CompleteNotification",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/CompletionObserver",
+        "type": "interface",
+        "name": "CompletionObserver",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/concat",
+        "type": "creation",
+        "name": "concat",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/concatAll",
+        "type": "pipeable",
+        "name": "concatAll",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/concatMap",
+        "type": "pipeable",
+        "name": "concatMap",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/concatMapTo",
+        "type": "pipeable",
+        "name": "concatMapTo",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/concatWith",
+        "type": "pipeable",
+        "name": "concatWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/config",
+        "type": "const",
+        "name": "config",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/connect",
+        "type": "pipeable",
+        "name": "connect",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/connectable",
+        "type": "function",
+        "name": "connectable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/Connectable",
+        "type": "interface",
+        "name": "Connectable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/ConnectableObservable",
+        "type": "class",
+        "name": "ConnectableObservable",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ConnectConfig",
+        "type": "interface",
+        "name": "ConnectConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/Cons",
+        "type": "type-alias",
+        "name": "Cons",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/count",
+        "type": "pipeable",
+        "name": "count",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/debounce",
+        "type": "pipeable",
+        "name": "debounce",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/debounceTime",
+        "type": "pipeable",
+        "name": "debounceTime",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/defaultIfEmpty",
+        "type": "pipeable",
+        "name": "defaultIfEmpty",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/defer",
+        "type": "creation",
+        "name": "defer",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/delay",
+        "type": "pipeable",
+        "name": "delay",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/delayWhen",
+        "type": "pipeable",
+        "name": "delayWhen",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/dematerialize",
+        "type": "pipeable",
+        "name": "dematerialize",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/distinct",
+        "type": "pipeable",
+        "name": "distinct",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/distinctUntilChanged",
+        "type": "pipeable",
+        "name": "distinctUntilChanged",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/distinctUntilKeyChanged",
+        "type": "pipeable",
+        "name": "distinctUntilKeyChanged",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/elementAt",
+        "type": "pipeable",
+        "name": "elementAt",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/empty",
+        "type": "creation",
+        "name": "empty",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/EMPTY",
+        "type": "const",
+        "name": "EMPTY",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/EmptyError",
+        "type": "interface",
+        "name": "EmptyError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/endWith",
+        "type": "pipeable",
+        "name": "endWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ErrorNotification",
+        "type": "interface",
+        "name": "ErrorNotification",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ErrorObserver",
+        "type": "interface",
+        "name": "ErrorObserver",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/every",
+        "type": "pipeable",
+        "name": "every",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/exhaust",
+        "type": "const",
+        "name": "exhaust",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/exhaustAll",
+        "type": "pipeable",
+        "name": "exhaustAll",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/exhaustMap",
+        "type": "pipeable",
+        "name": "exhaustMap",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/expand",
+        "type": "pipeable",
+        "name": "expand",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/FactoryOrValue",
+        "type": "type-alias",
+        "name": "FactoryOrValue",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/Falsy",
+        "type": "type-alias",
+        "name": "Falsy",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/filter",
+        "type": "pipeable",
+        "name": "filter",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/finalize",
+        "type": "pipeable",
+        "name": "finalize",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/find",
+        "type": "pipeable",
+        "name": "find",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/findIndex",
+        "type": "pipeable",
+        "name": "findIndex",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/first",
+        "type": "pipeable",
+        "name": "first",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/firstValueFrom",
+        "type": "function",
+        "name": "firstValueFrom",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/flatMap",
+        "type": "const",
+        "name": "flatMap",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/forkJoin",
+        "type": "creation",
+        "name": "forkJoin",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/from",
+        "type": "creation",
+        "name": "from",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/fromEvent",
+        "type": "creation",
+        "name": "fromEvent",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/fromEventPattern",
+        "type": "creation",
+        "name": "fromEventPattern",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/generate",
+        "type": "creation",
+        "name": "generate",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/GlobalConfig",
+        "type": "interface",
+        "name": "GlobalConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/groupBy",
+        "type": "pipeable",
+        "name": "groupBy",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/GroupByOptionsWithElement",
+        "type": "interface",
+        "name": "GroupByOptionsWithElement",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/GroupedObservable",
+        "type": "interface",
+        "name": "GroupedObservable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/Head",
+        "type": "type-alias",
+        "name": "Head",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/identity",
+        "type": "function",
+        "name": "identity",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/ignoreElements",
+        "type": "pipeable",
+        "name": "ignoreElements",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/iif",
+        "type": "creation",
+        "name": "iif",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/InteropObservable",
+        "type": "interface",
+        "name": "InteropObservable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/interval",
+        "type": "creation",
+        "name": "interval",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/isEmpty",
+        "type": "pipeable",
+        "name": "isEmpty",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/isObservable",
+        "type": "function",
+        "name": "isObservable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/last",
+        "type": "pipeable",
+        "name": "last",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/lastValueFrom",
+        "type": "function",
+        "name": "lastValueFrom",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/map",
+        "type": "pipeable",
+        "name": "map",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/mapTo",
+        "type": "pipeable",
+        "name": "mapTo",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/materialize",
+        "type": "pipeable",
+        "name": "materialize",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/max",
+        "type": "pipeable",
+        "name": "max",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/merge",
+        "type": "creation",
+        "name": "merge",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/mergeAll",
+        "type": "pipeable",
+        "name": "mergeAll",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/mergeMap",
+        "type": "pipeable",
+        "name": "mergeMap",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/mergeMapTo",
+        "type": "pipeable",
+        "name": "mergeMapTo",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/mergeScan",
+        "type": "pipeable",
+        "name": "mergeScan",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/mergeWith",
+        "type": "pipeable",
+        "name": "mergeWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/min",
+        "type": "pipeable",
+        "name": "min",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction",
+        "type": "interface",
+        "name": "MonoTypeOperatorFunction",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/multicast",
+        "type": "pipeable",
+        "name": "multicast",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/never",
+        "type": "creation",
+        "name": "never",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/NEVER",
+        "type": "const",
+        "name": "NEVER",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/NextNotification",
+        "type": "interface",
+        "name": "NextNotification",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/NextObserver",
+        "type": "interface",
+        "name": "NextObserver",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/noop",
+        "type": "function",
+        "name": "noop",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/NotFoundError",
+        "type": "interface",
+        "name": "NotFoundError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/Notification",
+        "type": "class",
+        "name": "Notification",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/NotificationKind",
+        "type": "enum",
+        "name": "NotificationKind",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ObjectUnsubscribedError",
+        "type": "interface",
+        "name": "ObjectUnsubscribedError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/Observable",
+        "type": "class",
+        "name": "Observable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/observable",
+        "type": "const",
+        "name": "observable",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservableInput",
+        "type": "type-alias",
+        "name": "ObservableInput",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservableInputTuple",
+        "type": "type-alias",
+        "name": "ObservableInputTuple",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservableLike",
+        "type": "type-alias",
+        "name": "ObservableLike",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservableNotification",
+        "type": "type-alias",
+        "name": "ObservableNotification",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservedValueOf",
+        "type": "type-alias",
+        "name": "ObservedValueOf",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservedValuesFromArray",
+        "type": "type-alias",
+        "name": "ObservedValuesFromArray",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservedValueTupleFromArray",
+        "type": "type-alias",
+        "name": "ObservedValueTupleFromArray",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ObservedValueUnionFromArray",
+        "type": "type-alias",
+        "name": "ObservedValueUnionFromArray",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/observeOn",
+        "type": "pipeable",
+        "name": "observeOn",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/Observer",
+        "type": "interface",
+        "name": "Observer",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/of",
+        "type": "creation",
+        "name": "of",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/onErrorResumeNext",
+        "type": "pipeable",
+        "name": "onErrorResumeNext",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/onErrorResumeNextWith",
+        "type": "pipeable",
+        "name": "onErrorResumeNextWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/Operator",
+        "type": "interface",
+        "name": "Operator",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/OperatorFunction",
+        "type": "interface",
+        "name": "OperatorFunction",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/pairs",
+        "type": "creation",
+        "name": "pairs",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/pairwise",
+        "type": "pipeable",
+        "name": "pairwise",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/PartialObserver",
+        "type": "type-alias",
+        "name": "PartialObserver",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/partition",
+        "type": "function",
+        "name": "partition",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/pipe",
+        "type": "pipeable",
+        "name": "pipe",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/pluck",
+        "type": "pipeable",
+        "name": "pluck",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/publish",
+        "type": "pipeable",
+        "name": "publish",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/publishBehavior",
+        "type": "pipeable",
+        "name": "publishBehavior",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/publishLast",
+        "type": "pipeable",
+        "name": "publishLast",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/publishReplay",
+        "type": "pipeable",
+        "name": "publishReplay",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/queue",
+        "type": "const",
+        "name": "queue",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/const/queueScheduler",
+        "type": "const",
+        "name": "queueScheduler",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/race",
+        "type": "creation",
+        "name": "race",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/raceWith",
+        "type": "pipeable",
+        "name": "raceWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/range",
+        "type": "creation",
+        "name": "range",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ReadableStreamLike",
+        "type": "interface",
+        "name": "ReadableStreamLike",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/reduce",
+        "type": "pipeable",
+        "name": "reduce",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/refCount",
+        "type": "pipeable",
+        "name": "refCount",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/repeat",
+        "type": "pipeable",
+        "name": "repeat",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/RepeatConfig",
+        "type": "interface",
+        "name": "RepeatConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/repeatWhen",
+        "type": "pipeable",
+        "name": "repeatWhen",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/ReplaySubject",
+        "type": "class",
+        "name": "ReplaySubject",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/retry",
+        "type": "pipeable",
+        "name": "retry",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/RetryConfig",
+        "type": "interface",
+        "name": "RetryConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/retryWhen",
+        "type": "pipeable",
+        "name": "retryWhen",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/sample",
+        "type": "pipeable",
+        "name": "sample",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/sampleTime",
+        "type": "pipeable",
+        "name": "sampleTime",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/scan",
+        "type": "pipeable",
+        "name": "scan",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/scheduled",
+        "type": "creation",
+        "name": "scheduled",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/Scheduler",
+        "type": "class",
+        "name": "Scheduler",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/SchedulerAction",
+        "type": "interface",
+        "name": "SchedulerAction",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/SchedulerLike",
+        "type": "interface",
+        "name": "SchedulerLike",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/sequenceEqual",
+        "type": "pipeable",
+        "name": "sequenceEqual",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/SequenceError",
+        "type": "interface",
+        "name": "SequenceError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/share",
+        "type": "pipeable",
+        "name": "share",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ShareConfig",
+        "type": "interface",
+        "name": "ShareConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/shareReplay",
+        "type": "pipeable",
+        "name": "shareReplay",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ShareReplayConfig",
+        "type": "interface",
+        "name": "ShareReplayConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/single",
+        "type": "pipeable",
+        "name": "single",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/skip",
+        "type": "pipeable",
+        "name": "skip",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/skipLast",
+        "type": "pipeable",
+        "name": "skipLast",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/skipUntil",
+        "type": "pipeable",
+        "name": "skipUntil",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/skipWhile",
+        "type": "pipeable",
+        "name": "skipWhile",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/startWith",
+        "type": "pipeable",
+        "name": "startWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/Subject",
+        "type": "class",
+        "name": "Subject",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/SubjectLike",
+        "type": "interface",
+        "name": "SubjectLike",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/Subscribable",
+        "type": "interface",
+        "name": "Subscribable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/SubscribableOrPromise",
+        "type": "type-alias",
+        "name": "SubscribableOrPromise",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/subscribeOn",
+        "type": "function",
+        "name": "subscribeOn",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/Subscriber",
+        "type": "class",
+        "name": "Subscriber",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/Subscription",
+        "type": "class",
+        "name": "Subscription",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/SubscriptionLike",
+        "type": "interface",
+        "name": "SubscriptionLike",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/switchAll",
+        "type": "pipeable",
+        "name": "switchAll",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/switchMap",
+        "type": "pipeable",
+        "name": "switchMap",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/switchMapTo",
+        "type": "pipeable",
+        "name": "switchMapTo",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/switchScan",
+        "type": "pipeable",
+        "name": "switchScan",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/Tail",
+        "type": "type-alias",
+        "name": "Tail",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/take",
+        "type": "pipeable",
+        "name": "take",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/takeLast",
+        "type": "pipeable",
+        "name": "takeLast",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/takeUntil",
+        "type": "pipeable",
+        "name": "takeUntil",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/takeWhile",
+        "type": "pipeable",
+        "name": "takeWhile",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/tap",
+        "type": "pipeable",
+        "name": "tap",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/TapObserver",
+        "type": "interface",
+        "name": "TapObserver",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/TeardownLogic",
+        "type": "type-alias",
+        "name": "TeardownLogic",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/throttle",
+        "type": "pipeable",
+        "name": "throttle",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/ThrottleConfig",
+        "type": "interface",
+        "name": "ThrottleConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/throttleTime",
+        "type": "pipeable",
+        "name": "throttleTime",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/throwError",
+        "type": "creation",
+        "name": "throwError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/throwIfEmpty",
+        "type": "pipeable",
+        "name": "throwIfEmpty",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/timeInterval",
+        "type": "pipeable",
+        "name": "timeInterval",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/TimeInterval",
+        "type": "interface",
+        "name": "TimeInterval",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/timeout",
+        "type": "pipeable",
+        "name": "timeout",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/TimeoutConfig",
+        "type": "interface",
+        "name": "TimeoutConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/TimeoutError",
+        "type": "interface",
+        "name": "TimeoutError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/TimeoutInfo",
+        "type": "interface",
+        "name": "TimeoutInfo",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/timeoutWith",
+        "type": "pipeable",
+        "name": "timeoutWith",
+        "deprecated": true
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/timer",
+        "type": "creation",
+        "name": "timer",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/timestamp",
+        "type": "pipeable",
+        "name": "timestamp",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/Timestamp",
+        "type": "interface",
+        "name": "Timestamp",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/TimestampProvider",
+        "type": "interface",
+        "name": "TimestampProvider",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/toArray",
+        "type": "pipeable",
+        "name": "toArray",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/TruthyTypesOf",
+        "type": "type-alias",
+        "name": "TruthyTypesOf",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/UnaryFunction",
+        "type": "interface",
+        "name": "UnaryFunction",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/Unsubscribable",
+        "type": "interface",
+        "name": "Unsubscribable",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/interface/UnsubscriptionError",
+        "type": "interface",
+        "name": "UnsubscriptionError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/using",
+        "type": "creation",
+        "name": "using",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ValueFromArray",
+        "type": "type-alias",
+        "name": "ValueFromArray",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/type-alias/ValueFromNotification",
+        "type": "type-alias",
+        "name": "ValueFromNotification",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/VirtualAction",
+        "type": "class",
+        "name": "VirtualAction",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/class/VirtualTimeScheduler",
+        "type": "class",
+        "name": "VirtualTimeScheduler",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/window",
+        "type": "pipeable",
+        "name": "window",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/windowCount",
+        "type": "pipeable",
+        "name": "windowCount",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/windowTime",
+        "type": "pipeable",
+        "name": "windowTime",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/windowToggle",
+        "type": "pipeable",
+        "name": "windowToggle",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/windowWhen",
+        "type": "pipeable",
+        "name": "windowWhen",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/withLatestFrom",
+        "type": "pipeable",
+        "name": "withLatestFrom",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/zip",
+        "type": "creation",
+        "name": "zip",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/zipAll",
+        "type": "pipeable",
+        "name": "zipAll",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/index/function/zipWith",
+        "type": "pipeable",
+        "name": "zipWith",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/ajax",
+        "type": "const",
+        "name": "ajax",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/AjaxConfig",
+        "type": "interface",
+        "name": "AjaxConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/AjaxDirection",
+        "type": "type-alias",
+        "name": "AjaxDirection",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/AjaxError",
+        "type": "interface",
+        "name": "AjaxError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/AjaxRequest",
+        "type": "interface",
+        "name": "AjaxRequest",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/AjaxResponse",
+        "type": "class",
+        "name": "AjaxResponse",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/ajax/AjaxTimeoutError",
+        "type": "interface",
+        "name": "AjaxTimeoutError",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/fetch/fromFetch",
+        "type": "creation",
+        "name": "fromFetch",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/webSocket/webSocket",
+        "type": "function",
+        "name": "webSocket",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/webSocket/WebSocketSubject",
+        "type": "class",
+        "name": "WebSocketSubject",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/webSocket/WebSocketSubjectConfig",
+        "type": "interface",
+        "name": "WebSocketSubjectConfig",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/testing/RunHelpers",
+        "type": "interface",
+        "name": "RunHelpers",
+        "deprecated": false
+    },
+    {
+        "link": "https://rxjs.dev/api/testing/TestScheduler",
+        "type": "class",
+        "name": "TestScheduler",
+        "deprecated": false
+    }
+]

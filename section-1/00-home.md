@@ -1,6 +1,6 @@
 # Section 1: A Tour of the Library
 
-[<<Prev](../00-what-is-rxjs.md) | [Home](../README.md) | [Next >>](./01-the-observable-universe.md)
+[<<Prev](../01-what-is-reactive-programming.md) | [Home](../README.md) | [Next >>](./01-the-observable-universe.md)
 
 If I'm being honest, I'm not sure how to describe what comes next.
 
