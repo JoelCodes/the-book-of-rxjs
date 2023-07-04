@@ -59,7 +59,7 @@ ___
 
 ### RxJS Libary Index
 
-[Classes](./index/classes.md) | [Subjects](./index/classes.md#subjects) | [Functions](./index/functions.md) | [Pipeable Operators](./index/functions.md#pipeable-operators) | [Creation Operators](./index/functions.md#creation-operators) | [Schedulers](./index/consts.md#schedulers) | [Consts](./index/consts.md) | [Types](./index/types.md) | [Deprecated](./index/deprecated.md)
+[All](./index/all.md) | [Classes](./index/classes.md) | [Subjects](./index/classes.md#subjects) | [Functions](./index/functions.md) | [Pipeable Operators](./index/functions.md#pipeable-operators) | [Creation Operators](./index/functions.md#creation-operators) | [Schedulers](./index/consts.md#schedulers) | [Consts](./index/consts.md) | [Types](./index/types.md) | [Deprecated](./index/deprecated.md)
 
 
 [Next >>](./00-what-is-rxjs.md)
