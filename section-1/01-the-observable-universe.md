@@ -1,6 +1,6 @@
-# Chapter 1: The Observatory
+# Chapter 1: The Observable Universe
 
-[<<Prev](/section-1/00-home.md) | [Home](/README.md) | [Next >>](/section-1/02-how-to-make-an-observables.md)
+[<<Prev](./00-home.md) | [Home](../README.md) | [Next >>](./02-how-to-make-an-observable.md)
 
 So far, we've been speaking in very broad, abstract terms.  It's been all "Reactive Programming" and "Subjects" and "Signals" and the like.  How does any of that apply to this library?
 
@@ -430,4 +430,4 @@ Honestly, at this point, we could call it quits, because we really have everythi
 
 But as I said earlier, RxJS is also a repository of patterns.  Everything that follows is honestly just "utilities", but they're also what will make your code readable and keep you from falling into bad patterns (or having to find the errors yourself), so let's keep going.
 
-[<<Prev](/section-1/00-home.md) | [Home](/README.md) | [Next >>](/section-1/02-how-to-make-an-observable.md)
+[<<Prev](./00-home.md) | [Home](../README.md) | [Next >>](./02-how-to-make-an-observable.md)

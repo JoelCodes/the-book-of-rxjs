@@ -1,6 +1,6 @@
 # Section 1: A Tour of the Library
 
-[<<Prev](/00-what-is-rxjs.md) | [Home](/README.md) | [Next >>](/section-1/01-welcome-to-the-observatory.md)
+[<<Prev](../00-what-is-rxjs.md) | [Home](../README.md) | [Next >>](./01-the-observable-universe.md)
 
 If I'm being honest, I'm not sure how to describe what comes next.
 
@@ -33,14 +33,12 @@ So here's the most important piece of advice I can give:
 > 
 > This tour ***IS NOT*** meant to take you gently from beginner to expert!  
 >
-> Its purpose is to let you know ***WHAT*** you can do with RxJS and ***WHICH CODE*** will get you there.
->
-> ***IF YOU ARE READING SOMETHING AND YOU DON'T GET IT, MOVE ON!!***
+> If you try to read it all the way through, line by line, it can be really intimidating.
 >
 > Sometimes, the most important thing you can take away is "*X* can be done", and you can come back later to find out, "This is how to do *X*"
 
 My intent with this tour is really threefold:
-1. Give you a cloudy understanding of the RxJS library that refines with each reading;
+1. Give you a high-level, cloudy understanding of the RxJS library that refines with each reading;
 2. Let you approach the text with a specific problem (e.g. "How do I keep an Observable from giving me too much data in a given time window?") and go directly to the chapter that deals with that; and
 3. When you're wondering what a certain function or class does, give you a context for it, and possibly compare and contrast it with similar functions or classes.
 
@@ -55,4 +53,4 @@ And, everything in every chapter will be cross-referenced in the index, so you'l
 
 Well, with no further ado, and no more gilding of the lily, let's start by looking at the basic building blocks of RxJS: Observers, Observables, and Subscriptions.
 
-[<<Prev](/00-what-is-rxjs.md) | [Home](/README.md) | [Next >>](/section-1/01-welcome-to-the-observatory.md)
+[<<Prev](../00-what-is-rxjs.md) | [Home](../README.md) | [Next >>](./01-the-observable-universe.md)
