@@ -6,6 +6,7 @@ Welcome to the Book of RxJS!  This book is meant to serve as a textbook, referen
 
 In time, this book will have explanations, diagrams, code examples, exercises, videos, and projects illuminating the use of this whole library!  However, as of July 2023, this is still very much in an early stage, so you may be seeing unfinished chapters, or chapters that are merely outlines or code examples, so please bear with me through this stage.  This particular format of Markdown pages in Github is also meant as an MVP, so I can get material online quickly.  If you're willing to bear with me, I hope to create the most useful resource on RxJS available!
 
+---
 ## How Can I Help?
 
 I'm so glad you asked!  
@@ -18,6 +19,7 @@ I'm so glad you asked!
 
 And finally, if you want to say thank you and support the ongoing elaboration of this work, you can always [buy me a coffee](https://ko-fi.com/yesthatjoelshinness) or support this project through Github Sponsors.
 
+---
 ## How to Use This Book
 
 This book is unusual in its bookiness.  You might be looking to understand RxJS, write RxJS code, or design applications with the patterns defined in RxJS.  You might be sold on RxJS, you might be skeptical.  So there are many parts designed for different people at different stages in their journey with the library.
@@ -34,17 +36,18 @@ The last section is the cookbook.  I say cookbook, but this will be less like "h
 
 Finally, there is an index.  If all goes well, the index will be your most potent resource for RxJS.  You'll be able to look for any member of the library, and see every place it's used throughout this book.  That will give you all sorts of context as you seek to understand what a specific operator might do or mean when used in a certain way.
 
+---
 ## Table of Contents
 
 [What is RxJS?](/00-what-is-rxjs.md) | [What is Reactive Programming?](/01-what-is-reactive-programming.md?)
 
-___
+---
 
 ### [Section I: A Tour of the Library](/section-1/00-home.md)
 
 [Welcome to the Library!](./section-1/00-home.md) | [1. The Observable Universe](./section-1/01-the-observable-universe.md) | [2. How To Make An Observable](./section-1/02-how-to-make-an-observable.md) | [3. Pipe Dreams](./section-1/03-pipe-dreams.md) | [4. Array-like Operators](./section-1/04-array-like-operators.md) | [5. RxJS For Processes](./section-1/05-rxjs-for-processes.md) | [6. Combining Observables](./section-1/06-combining-observables.md) | [7. Timing](./section-1/07-timing.md) | [8. Rx-Specific Operators](./section-1/08-rx-specific-operators.md) | [9. Testing RxJS](./section-1/09-testing-rxjs.md) | [10. RxJS Graveyard](./section-1/10-rxjs-graveyard.md) | [11. Just My Types](./section-1/11-just-my-types.md) | [12. What's Next?](./section-1/12-whats-next.md)
 
-___
+---
 
 ### [Section II: Articles](/section-2/00-home.md)
 
