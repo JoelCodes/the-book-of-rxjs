@@ -54,13 +54,13 @@ const entries = Promise.all([
     const references = componentReferences[component.name] || [];
     const content = `* [${component.name}](${component.link}) - ${component.type}
 ${
-  references.map(([section, title, link]) => `  * [${section} - ${title}](${link})`).join('\n')
+  references.map(([section, title, link]) => `  * [${section} - ${title}](${link})`).join('\n\n')
 }`
     return [component.name, content];
   }));  
 });
 
-const clearIndexFiles = fs.rmdir(path.join(__dirname, '../index'), { recursive: true }).then(() => fs.mkdir(path.join(__dirname, '../index')));
+const clearIndexFiles = fs.rm(path.join(__dirname, '../index'), { recursive: true }).then(() => fs.mkdir(path.join(__dirname, '../index')));
 clearIndexFiles
   .then(() => Promise.all([entries, componentsData]))
   .then(async ([entries, componentsData]) => {
@@ -72,7 +72,7 @@ clearIndexFiles
 [Classes](./classes.md) | [Subjects](./classes.md#subjects) | [Functions](./functions.md) | [Schedulers](./consts.md#schedulers) | [Consts](./consts.md) | [Types](./types.md) | [Deprecated](./deprecated.md)
 
 ${
-  componentsData.map(component => entries[component.name]).join('\n')
+  componentsData.map(component => entries[component.name]).join('\n\n')
 }
 `;
 
@@ -81,7 +81,7 @@ ${
 [Classes](./classes.md) | [Subjects](./classes.md#subjects) | [Functions](./functions.md) | [Pipeable Operators](./functions.md#pipeable-operators) | [Creation Operators](./functions.md#creation-operators) | [Schedulers](./consts.md#schedulers) | [Consts](./consts.md) | [Types](./types.md) | [Deprecated](./deprecated.md)
     
 ${
-  componentsData.map(component => entries[component.name]).join('\n')
+  componentsData.map(component => entries[component.name]).join('\n\n')
 }
 `);
     const {
@@ -94,11 +94,11 @@ ${
 
 ## Subjects
 
-${subjects.map(component => entries[component.name]).join('\n')}
+${subjects.map(component => entries[component.name]).join('\n\n')}
 
 ## Others
 
-${otherClasses.map(component => entries[component.name]).join('\n')}
+${otherClasses.map(component => entries[component.name]).join('\n\n')}
 `);
 
   await fs.writeFile(path.join(__dirname, '../index/functions.md'), `# Functions
@@ -107,15 +107,15 @@ ${otherClasses.map(component => entries[component.name]).join('\n')}
 
 ## Pipeable Operators
 
-${pipeable.map(component => entries[component.name]).join('\n')}
+${pipeable.map(component => entries[component.name]).join('\n\n')}
 
 ## Creation Operators
 
-${creation.map(component => entries[component.name]).join('\n')}
+${creation.map(component => entries[component.name]).join('\n\n')}
 
 ## Other Functions
 
-${functions.map(component => entries[component.name]).join('\n')}
+${functions.map(component => entries[component.name]).join('\n\n')}
 
 `);
     const {
@@ -127,28 +127,28 @@ ${functions.map(component => entries[component.name]).join('\n')}
 
 ## Schedulers
 
-${schedulers.map(component => entries[component.name]).join('\n')}
+${schedulers.map(component => entries[component.name]).join('\n\n')}
 
 ## Observable Consts
 
-${observables.map(component => entries[component.name]).join('\n')}
+${observables.map(component => entries[component.name]).join('\n\n')}
 
 ## Other Consts
 
-${otherConsts.map(component => entries[component.name]).join('\n')}
+${otherConsts.map(component => entries[component.name]).join('\n\n')}
 `);
     await fs.writeFile(path.join(__dirname, '../index/types.md'), `# Types
 
 [Back to All Components](./all.md)
 
-${interfaces.map(component => entries[component.name]).join('\n')}
+${interfaces.map(component => entries[component.name]).join('\n\n')}
 
 `);
     await fs.writeFile(path.join(__dirname, '../index/deprecated.md'), `# Deprecated
 
 [Back to All Components](./all.md)
 
-${componentsData.filter(component => component.deprecated).map(component => entries[component.name]).join('\n')}
+${componentsData.filter(component => component.deprecated).map(component => entries[component.name]).join('\n\n')}
 `);
   });
 
