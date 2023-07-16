@@ -147,16 +147,15 @@ function *identityIterable<A>(source:Iterable<A>):Iterable<A>{
 }
 ```
 
-So for each of the operators going forward, I'm going to describe it, but I'm also going to write the "generator" version of it, so you know I'm on the level.
+So, for each of the operators going forward, I'm going to describe it, but I'm also going to write the "generator" version of it, so you know I'm on the level.
 
 Well, I'm certainly going to try.
 
 > NOTE: for the time being, there's no more prose here.  This is an outline with some code written for each operator, but eventually, I STG, this will be a well-crafted, clear-yet-thorough explanation of each operator.
 
-## One goes in, one-ish comes out
+## One goes in, one comes out
 
-* map
-* scan
+Okay, let's get to it.  We're gonna start with two operators of type `OperatorFunction<A, B>` that take a the granddaddy of all operators: `map`.  It's an oldie and a goldie.  In fact, in Category Theory, there's a special name given to a data source that can implement map: "Functor".  In plain English, we use make to make an Observable where every input item "maps" to one output item.
 
 ```ts
 function map<A, B>(txfm: (item:A, index:number) => B){
@@ -167,7 +166,11 @@ function map<A, B>(txfm: (item:A, index:number) => B){
     }
   }
 }
+```
 
+There's another one like it called `scan`, and `scan` is an absolute workhorse.  It employs the *reducer* function pattern, so it fits in well with code from Redux or React's `useReducer` hook.
+
+```ts
 function scan<A, B>(reducer:(accum: B, item:A, index:number) => B, seed:B) {
   return function *(source:Iterable<A>):Iterable<B>{
     let index = 0;
@@ -180,120 +183,44 @@ function scan<A, B>(reducer:(accum: B, item:A, index:number) => B, seed:B) {
 }
 ```
 
-### Blocks
+"But wait!" you might be saying.  "Isn't that just [`Array.prototype.reduce`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)?  Is it different? And isn't there a `reduce` operator?  What's going on?"
 
-* filter
-* ignoreElements
+This is, in fact, very similar to `Array.prototype.reduce`, but with a couple of differences:
 
-```ts
-function filter<A>(pred:(item:A, index:number) => boolean){
-  return function *(source:Iterable<A>):Iterable<A>{
-    let index = 0;
-    for(const item of source){
-      if(pred(item, index++)){
-        yield item;
-      }
-    }
-  }
-}
+1. The array version of reduce has two versions: with a seed value or without.  When it's missing, the array basically picks the first value and then reduces from there.  `scan` on the other hand, won't work without a seed value.
+1. More importantly, the reduce method from array and the `reduce` operator both return only one value, where `scan` returns one value for each input value.
 
-function *ignoreElements(source:Iterable<any>):Iterable<never>{
-  for(const item of source);
-}
-```
+Why return more than 1 value?  Why doesn't reduce do that?  Well, this comes from one of the big differences between dealing with Observables and dealing with arrays: if you are iterating through an array, you already have all the values you could ever need; if you're subscribing to Observable, you may need the current aggregate even if you don't have all the values.
 
-### With Distinction
-
-* distinct
-* distinctUntilChanged
-* distinctUntilKeyChanged
+`scan` is great for keeping track of something as you're going along.  For instance, if you had a bunch of sales people, and you wanted to keep track of their sale amounts and who had the highest, you could do something like this:
 
 ```ts
-function distinct<A, K>(keySelector:(item:A) => K){
-  return function *(source:Iterable<A>){
-    const set = new Set<K>();
-    for(const item of set){
-      const key = keySelector(item);
-      if(!set.has(key)){
-        yield item;
-        set.add(key);
-      }
+const sale$ = from([
+  {name: 'Jeff', amount: 100},
+  {name: 'Janet', amount: 200},
+  {name: 'Jeff', amount: 100},
+  {name: 'Mike', amount: 300}
+]).pipe(
+  scan((agg, {name, amount}) => {
+    return {
+      ...agg,
+      [name]: (agg[name] || 0) + amount
     }
-  }
-}
+  }, {})
+).subscribe(console.log);
 
-function distinctUntilChanged<T, K>(comparator:(prev:K, curr:K) => boolean = (prev, curr) => prev === curr, keySelector:(item:T) => K = identity as (item:T) => K){
-  return function*([first, ...rest]:Iterable<T>):Iterable<T>{
-    let lastKey = keySelector(first);
-    yield first;
-    for(const item of rest){
-      let currKey = keySelector(item);
-      if(comparator(currKey, lastKey)) continue;
-      lastKey = currKey
-      yield item;
-    }
-  }
-}
-
-function distinctUntilKeyChanged<T, K extends keyof T>(key:K, compare: (x: T[K], y: T[K]) => boolean = (x, y) => x === y){
-  return distinctUntilChanged<T, K>(compare, t => t[key]);
-}
+// CONSOLE:
+// { Jeff: 100 }
+// { Jeff: 100, Janet: 200 }
+// { Jeff: 200, Janet: 200 }
+// { Jeff: 200, Janet: 200, Mike: 300 }
 ```
 
-### Skip to the good parts
-
-* skip
-* skipWhile
-* skipLast
-
-```ts
-function skip<T>(count:number){
-  if(count <= 0) return identity;
-
-  return function *(source:Iterable<T>):Iterable<T>{
-    let remaining = count;
-    for(const item of source){
-      if(remaining <= 0){
-        yield item;
-      } else {
-        remaining -= 1;
-      }
-    }
-  }
-}
-
-function skipWhile<T>(predicate:(item:T, index:number) => boolean){
-  return function *(source:Iterable<T>):Iterable<T>{
-    let skipping = true;
-    let index = 0;
-    for(const item of items){
-      if(!skipping){
-        yield item;
-      } else if(predicate(item, index++)){
-        skipping = false;
-        yield item;
-      }
-    }
-  }
-}
-
-function skipLast<T>(count:number){
-  if(count <= 0) return identity;
-  return function *(source:Iterable<T>):Iterable<T> {
-    let skipped = [];
-    for(const item of items){
-      if(skipped.length >= count){
-        yield skipped.shift();
-      }
-      skipped.push(item);
-    }
-  }
-}
-```
+> Learn more about reducers in [Reducers for Fun and Profit](../section-2/01-reducers-for-fun-and-profit.md)
 
 ### Material Girls
 
-* materialize / dematerialize
+Now, this is gonna be an odd one, but I want to introduce `materialize`. Its an alright debugging tool and a decent tool for interop with other systems, so it deserves its place in the library.  `materialize` takes an Observable and turns it into... well, another Observable.  But this is an Observable of "tokens" that represents the next, complete, and error events. And `dematerialize` does the same thing in the opposite direction, turning an Observable of these tokens back into a "normal" stream.
 
 ```ts
 type NextNotification<T> = { kind: 'N', value: T }, 
@@ -324,7 +251,336 @@ function *dematerialize<T>(source:Iterable<ObservableNotification<T>>):Iterable<
 }
 ```
 
+Now, I have not yet found a use for this one myself, BUT I have done the *exact same thing* with Promises to solve an honest-to-goodness Promise composition problem:
+
+```ts
+type SuccessNotification<T> = {kind: 'S', value: T}
+type PromiseNotification<T> = SuccessNotification<T> | ErrorNotification
+
+function materializePromise<T>(promise:Promise<T>):Promise<PromiseNotification<T>>{
+  return promise.then(value => ({kind: 'S', value}, error => ({kind: 'E', error})));
+}
+
+function dematerializePromise<T>(promise:Promise<PromiseNotification<T>>){
+  return promise.then(notification => {
+    if(notification.kind === 'S') return notification.value;
+    return Promise.reject(notification.error);
+  })
+}
+```
+
+So, you know what?  No notes.
+
+## One goes in, maybe one comes out.
+
+Well, that brings us to the next important category: operators that decide what input gets through.  For every 1 input that comes in, either the same input comes out, or it doesn't.  And all of these will be `MonoTypeOperatorFunction<T>`'s, which means that there's no change to the values.
+
+Sooo, the good news is that ya boi `filter` works the same in RxJS as it does with arrays: it takes in a "tester" function (which is referred to as a **predicate**), and runs each item and index through that test.  If it returns true, the input will be seen on the other side.  If it returns false, *then that input is never heard from again mwahaHAHAHA!!!!!*
+
+```ts
+function filter<A>(pred:(item:A, index:number) => boolean){
+  return function *(source:Iterable<A>):Iterable<A>{
+    let index = 0;
+    for(const item of source){
+      if(pred(item, index++)){
+        yield item;
+      }
+    }
+  }
+}
+```
+
+Top tier stuff.  We also have an operator like it, but it answers the question: "What if you took `filter` and gave it a predicate that always returned `false`?"  Well, you'd have `ignoreElements`.  It does exactly what it says on the tin.  If its source completes or errors out, it'll pass that on.  But its `next` function is *never* getting called.
+
+```ts
+function *ignoreElements(source:Iterable<any>):Iterable<never>{
+  for(const item of source);
+}
+```
+
+I know, it probably looks useless, but it does have its charms.  I find myself reaching for `timer(n).pipe(ignoreElements())` when I just want an observable to wait a while and then complete.
+
+### With Distinction
+
+Sometimes, you want to make sure there are no repeats of items.  I often use `[...new Set(items)]` to accomplish this with arrays, but obviously, this won't work the same way when you have a stream of items, right?
+
+Well, an iterable version could look like this:
+
+```ts
+function distinct<A, K>(keySelector:(item:A) => K = identity as (item:A) => K){
+  return function *(source:Iterable<A>){
+    const set = new Set<K>();
+    for(const item of set){
+      const key = keySelector(item);
+      if(!set.has(key)){
+        yield item;
+        set.add(key);
+      }
+    }
+  }
+}
+```
+
+We hold on to the set, and every time we have an item that hasn't been seen yet, we yield it, but add its key to the set.
+
+This is a really common pattern I use with arrays, but again, I do different things with arrays than I do with streams because all the data is there.  Sometimes, I care more about change.
+
+Consider the `span` example above.  There are many cases where an input will not result in a state change, and we just repeat the old state.  But maybe we don't want to trigger some transformation if the state hasn't changed.  `distinctUntilChanged` will filter out values that are the same as the last emitted state (with an equality operator you can define).
+
+```ts
+function distinctUntilChanged<T>():(source:Iterable<T>) => Iterable<T>;
+function distinctUntilChanged<T>(comparator:(prev:T, curr:T) => boolean):(source:Iterable<T>) => Iterable<T>;
+function distinctUntilChanged<T, K>(keyComparator:(prev:K, curr:K) => boolean, keySelector:(item:T) => K):(source:Iterable<T>) => Iterable<T>;
+
+function distinctUntilChanged(
+  comparator:(prev:any, curr:any) => boolean = (prev:any, curr:any) => prev === curr, 
+  keySelector:(item:any) => any = identity
+){
+  return function*([first, ...rest]:Iterable<T>):Iterable<T>{
+    let lastKey = keySelector(first);
+    yield first;
+    for(const item of rest){
+      let currKey = keySelector(item);
+      if(comparator(currKey, lastKey)) continue;
+      lastKey = currKey
+      yield item;
+    }
+  }
+}
+```
+
+You may think that the `keySelector` / `keyComparator` is a bit much, and for your use case it might be, but this ability to create a "hash" for a value is really common where distinct is involved, and it might be perfect for your usecase.  The `distinctUntilKeyChanged` is a simple shorthand for the case for this where your key can be accessed through a key like "name" or "id" or something.
+
+```ts
+function distinctUntilKeyChanged<T, K extends keyof T>(key:K, compare: (x: T[K], y: T[K]) => boolean = (x, y) => x === y){
+  return distinctUntilChanged<T, K>(compare, t => t[key]);
+}
+```
+
+### Skip to the good parts
+
+Another common thing you might do with an array is to get a slice of it.  For instance, if you wanted to skip 4 items but then take 3, you could write `items.slice(4, 7)` or `items.slice(4).slice(0, 3)`.  The language for this in RxJS is `skip` and `take`.
+
+The mechanism behind `skip` belongs in this section, since it does what filter and distinct do: go item for item and decide if it should be passed on to the new observable.  The only difference is that once it starts emitting, it doesn't stop.
+
+```ts
+function skip<T>(count:number){
+  if(count <= 0) return identity;
+
+  return function *(source:Iterable<T>):Iterable<T>{
+    let countDown = count;
+    for(const item of source){
+      if(countDown <= 0){
+        yield item;
+      } else {
+        countDown -= 1;
+      }
+    }
+  }
+}
+```
+
+As you can see, it skips items until it's ready to start, but after that, it just emits.  We can also use `skipWhile` with a predicate.  Its type signature is identical to `filter`, but once something passes muster, then it doesn't apply the predicate anymore.
+
+```ts
+function skipWhile<T>(predicate:(item:T, index:number) => boolean){
+  return function *(source:Iterable<T>):Iterable<T>{
+    let skipping = true;
+    let index = 0;
+    for(const item of items){
+      if(!skipping){
+        yield item;
+      } else if(predicate(item, index++)){
+        skipping = false;
+        yield item;
+      }
+    }
+  }
+}
+```
+
+That brings us to `skipLast`.  It makes sense that this is in the library, but honestly, it's a strange one, and I'll tell you why.  You could think of `skip` as `skipFirst`, so if `from([1,2,3,4,5]).pipe(skip(2))` is equivalent to `from([3,4,5])`, then using `skipLast(2)` instead is equivalent to `from([1,2,3])`.  Here's the iterable version of that.
+
+```ts
+function skipLast<T>(count:number){
+  if(count <= 0) return identity;
+  return function *(source:Iterable<T>):Iterable<T> {
+    let skipped = [];
+    for(const item of items){
+      if(skipped.length >= count){
+        yield skipped.shift();
+      }
+      skipped.push(item);
+    }
+  }
+}
+```
+
+But here's where the strangeness sets in.  You see, in every operator we've talked about in this chapter, if the newly created observable emits a signal, it's because it just received it from its source.  Not so with `skipLast`.  If we run a debug tap we can see what's really happening:
+
+```ts
+interval(1000).pipe(
+  tap(debugger('From Source')),
+  skipLast(2),
+  tap(debugger('After Skip')),
+).subscribe();
+
+// Console
+// After Skip Subscribed
+// From Source Subscribed
+// From Source Next 0
+// From Source Next 1
+// From Source Next 2
+// After Skip Next 0
+// From Source Next 3
+// After Skip Next 1
+// From Source Next 4
+// After Skip Next 2
+// ... ad infinitum
+```
+
+Can you see the delay?  `skipLast(2)` emits the first item *after* it gets the third item.  It will emit the right values, but since it doesn't know the future values or length to come, it uses a delay to make that happen.  So if you're going to use this one, make sure you don't need the most current values at the current moment.  In fact, maybe only use this one for synchronous transformations.
+
+The last variation is `skipUntil`.  Now this one doesn't have an iterable version we can write out, and for good reason: this depends on another Observable, so its pretty hard to do this synchronously.  In fact, everywhere you see "until" in RxJS, think "until another Observable emits".
+
+We'll cover that and other ways that Observables interact with each other in [Chapter 6: Combining Observables](./06-combining-observables.md)
+
+## At the end of the day
+
+Well, we've talked about all the operators that only spring into action while the source is emitting variables, telling us something along the way.  But sometimes, the thing we want to know about the sequence is something we can only know at the end.  So, we're going to look at operators that don't emit anything until the source completes.
+
+Here's another way to look at it: the iterable versions of these operators don't necessarily need to return an `Iterable<T>`; they can just return the value itself.  In the same way, the async iterable versions wouldn't need to return an `AsyncIterable<T>`, they could just return a `Promise<T>`.  Now, when it comes to observable operators, they will need to return an Observable, but it will be an Observable that will emit exactly one value and then complete.  You could even use `lastValueFrom` or `firstValueFrom` to turn it into a Promise.
+
+An operator that really shows this is `count`.  `count` does exactly what it says on the tin: it counts how many items the source emits.  If you pass it a predicate, it'll count how many meet that predicate.
+
+```ts
+const ALWAYS_TRUE = () => true;
+// Iterable Version
+function count<T>(predicate:(item:T, index:number) => boolean = ALWAYS_TRUE) {
+  return (source:Iterable<T>):number => {
+    let index = 0;
+    let count = 0;
+    for(const item of source){
+      if(predicate(item, index++)){
+        count++;
+      }
+    }
+    return count;
+  }
+}
+
+// Async Iterable Version
+function count<T>(predicate:(item:T, index:number) => boolean = ALWAYS_TRUE){
+  return async (source:AsyncIterable<T>):Promise<number> => {
+    let index = 0;
+    let count = 0;
+    for await (const item of source){
+      if(predicate(item, index++)){
+        count++
+      }
+    }
+    return count;
+  }
+}
+
+function count<T>(predicate:(item:T, index:number) => boolean = ALWAYS_TRUE){
+  return (source:Observable<T>) => new Observable<number>(subscriber => {
+    let index = 0;
+    let count = 0;
+    source.subscriber({
+      next(value){
+        if(predicate(item, index++)){
+          count++;
+        }
+      },
+      complete(){ 
+        subscriber.next(count); 
+        subscriber.complete();
+      },
+      error(err:any){ subscriber.error(err); }
+    })
+  });
+}
+```
+
+You can see that, unlike all the operators we've seen so far, we're not using generator functions.  We don't need to `yield` in any of them.  And in the Observable version, we don't emit a signal until the source is all finished.  We just keep counting.  And when the source does complete, we emit one value and immediately complete.
+
+A similar one to it is `toArray`. When it starts, it creates a new array, and each time it source emits, it pushes that element into the array.  When the sequence completes, it emits one value: the array.
+
+```ts
+// Iterable Version
+function *toArray<T>(items:Iterable<T>):T[]{
+  const collectedItems = [];
+  for(const item of items){
+    collectedItems.push(item);
+  }
+  return collectedItems;
+}
+
+// Async Iterable Version
+async function *toArray<T>(items:AsyncIterable<T>):Promise<T[]>{
+  const collectedItems = [];
+  for await(const item of items){
+    collectedItems.push(item);
+  }
+  return collectedItems
+}
+
+// Observable version
+function toArray<T>(source:Observable<T>):Observable<T[]>{
+  return new Observable<T[]>(subscriber => {
+    const collectedItems = [];
+    const subscription = source.subscribe({
+      next(value){ collectedItems.push(value); },
+      complete(){ subscriber.next(collectedItems); },
+      error(err:any){ subscriber.error(err); }
+    });
+
+    return () => { subscription.unsubscribe(); };
+  });
+}
+```
+
+`toArray` plays a really important role when you use RxJS to do lazy transformations on arrays, but you can read more about that here: [Lazy Array Transformation](../section-2/02-lazy-array-transformation.md).
+
+And to cap off this little section, here's `reduce`!  `reduce` works very similar to its counterpart from [`Array.prototype.reduce`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce).  You have a sequence of type A, you pass in a reducer function (with the type signature `(acc:B, item:A, index:number) => B`), and a seed of type B, and bam!  You have a B at the end!
+
+* min
+* max
+* takeLast
+
+```ts
+function reduce<T, R>(reducer:(accum:R, item:T, index:number) => R, seed:R){
+  return function(source:Iterable<T>):R{
+    let current = seed;
+    let index = 0;
+    for(const item of source){
+      current = reducer(current, item, index++);
+    }
+    return current;
+  }
+}
+
+function *toArray<T>(source:Iterable<T>):T[] {
+  return [...source];
+}
+
+function count(predicate?: (value: T, index: number) => boolean) {
+  return function*(source:Iterable<T>):number{
+  let index = 0;
+  let count = 0;
+  for(const item of source){
+    if(!predicate || predicate(item, index++)){
+      count++
+    }
+  }
+  return count;
+}
+```
+
 ## Short Circuit
+
+All right, we've 
 
 * every
 

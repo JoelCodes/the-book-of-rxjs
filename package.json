@@ -1,0 +1,26 @@
+{
+  "name": "book-of-rxjs",
+  "version": "1.0.0",
+  "description": "Welcome to the Book of RxJS!  This book is meant to serve as a textbook, reference guide, and collection of examples and musings on the art of RxJS, the JavaScript implementation of the [ReactiveX](https://reactivex.io/) library!  RxJS takes many concepts you might already be familiar with, like Arrays and Promises, and combines them to make all of your async operations and data manipulations work together seamlessly, efficiently, and all with a declarative interface!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelCodes/the-book-of-rxjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelCodes/the-book-of-rxjs/issues"
+  },
+  "homepage": "https://github.com/JoelCodes/the-book-of-rxjs#readme",
+  "dependencies": {
+    "nodemon": "^3.0.1",
+    "rxjs": "^7.8.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

@@ -55,8 +55,8 @@
 
 * [MonoTypeOperatorFunction](https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction) - interface
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#smooth-operator)
-
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#multiple-identity)
+  * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#one-goes-in,-maybe-one-comes-out.)
 
 * [NextNotification](https://rxjs.dev/api/index/interface/NextNotification) - interface
   * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#material-girls)
@@ -72,42 +72,31 @@
 
 * [Observer](https://rxjs.dev/api/index/interface/Observer) - interface
   * [../section-1 - Section 1: A Tour of the Library](../section-1/00-home.md#how-to-keep-your-brains-from-exploding)
-
   * [../section-1 - Chapter 1: The Observable Universe](../section-1/01-the-observable-universe.md#`observer<t>`)
-
   * [../section-1 - Chapter 1: The Observable Universe](../section-1/01-the-observable-universe.md#`observable<t>`)
-
   * [../section-1 - Chapter 1: The Observable Universe](../section-1/01-the-observable-universe.md#observables-as-functions)
-
   * [../section-1 - Chapter 1: The Observable Universe](../section-1/01-the-observable-universe.md#observables-as-streams)
-
   * [../section-1 - Chapter 1: The Observable Universe](../section-1/01-the-observable-universe.md#observables-as-processes)
-
   * [../section-1 - Chapter 1: The Observable Universe](../section-1/01-the-observable-universe.md#`subscription`)
-
   * [../section-1 - Chapter 2: How to Make an Observable](../section-1/02-how-to-make-an-observable.md#chapter-2:-how-to-make-an-observable)
-
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#multiple-identity)
-
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#tap-dancing)
 
 * [Operator](https://rxjs.dev/api/index/interface/Operator) - interface
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#chapter-3:-pipe-dreams)
-
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#smooth-operator)
-
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#multiple-identity)
-
   * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#chapter-4:-array-like-operators)
-
+  * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#one-goes-in,-one-comes-out)
+  * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#one-goes-in,-maybe-one-comes-out.)
   * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#making-operators-for-fun-and-profit)
-
   * [../section-1 - Chapter 8: Rx-Specific Operators](../section-1/08-rx-specific-operators.md#chapter-8:-rx-specific-operators)
 
 * [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction) - interface
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#smooth-operator)
-
   * [../section-1 - Chapter 3: Pipe Dreams](../section-1/03-pipe-dreams.md#multiple-identity)
+  * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#one-goes-in,-one-comes-out)
+  * [../section-1 - Chapter 4: Array-Like Operators](../section-1/04-array-like-operators.md#one-goes-in,-maybe-one-comes-out.)
 
 * [ReadableStreamLike](https://rxjs.dev/api/index/interface/ReadableStreamLike) - interface
 

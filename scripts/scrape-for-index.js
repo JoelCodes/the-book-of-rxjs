@@ -5,9 +5,14 @@ const componentsData = fs.readFile(path.join(__dirname, './components.json'), 'u
   .then(JSON.parse)
   .then(items => items.sort((a, b) => a.name.localeCompare(b.name)));
 
+const sections = {
+  ['../section-1']: 'A Tour Of The Library',
+  ['../section-2']: 'RxJS Articles',
+  ['../section-3']: 'RxJS Cookbook',
+}
 const fileNames = Promise.all(
-  ['../section-1', '../section-2', '../section-3']
-  .map(section => fs.readdir(path.join(__dirname, section)).then(files => files.map((file) => [section, file])))
+  Object.keys(sections)
+    .map(section => fs.readdir(path.join(__dirname, section)).then(files => files.map((file) => [section, file])))
 ).then(files => files.flatMap(files => files));
 
 const componentReferences = Promise.all([fileNames, componentsData]).then(async([fileNames, componentsData]) => {
@@ -15,20 +20,25 @@ const componentReferences = Promise.all([fileNames, componentsData]).then(async(
 
   for(const [section, fileName] of fileNames) {
     const contents = await fs.readFile(path.join(__dirname, section, fileName), 'utf8');
-    const [first, ...lines] = contents.split('\n');
+    if(!contents.includes('#')) continue;
+    const allLines = skipWhile(contents.split('\n'), line => !line.trim().startsWith('#'));
+    if(allLines.length === 0) continue;
+    const [first, ...lines] = allLines;
     const groups = [];
     const last = [first];
     groups.push(last);
 
-    const groupedLines = lines.reduce((acc, line) => {
-      if(line.startsWith('#')){
-        return [...acc, [line]];
+    const groupedLines = [[first]];
+    for(const line of lines){
+      const trimmedLine = line.trim();
+
+      if(!trimmedLine) continue;
+      if(trimmedLine.startsWith('#')){
+        groupedLines.push([line]);
+      } else {
+        groupedLines[groupedLines.length - 1].push(line);
       }
-      return [
-        ...acc.slice(0, acc.length - 1),
-        [...acc[acc.length - 1], line]
-      ]
-    }, [[first]]);
+    }
     for(const component of componentsData){
       componentReferences[component.name] = componentReferences[component.name] || [];
       for(const group of groupedLines){
@@ -54,7 +64,7 @@ const entries = Promise.all([
     const references = componentReferences[component.name] || [];
     const content = `* [${component.name}](${component.link}) - ${component.type}
 ${
-  references.map(([section, title, link]) => `  * [${section} - ${title}](${link})`).join('\n\n')
+  references.map(([section, title, link]) => `  * [${section} - ${title}](${link})`).join('\n')
 }`
     return [component.name, content];
   }));  
@@ -164,3 +174,15 @@ function groupBy(items, keySelector){
   return groups;
 }
   
+function* skipWhile(items, predicate){
+  let skipped = true;
+  let index = 0;
+  for(const item of items){
+    if(!predicate(item, index++)){
+      skipped = false;
+    }
+    if(!skipped){
+      yield item;
+    }
+  }
+}

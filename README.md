@@ -22,7 +22,15 @@ And finally, if you want to say thank you and support the ongoing elaboration of
 ---
 ## How to Use This Book
 
-This book is unusual in its bookiness.  You might be looking to understand RxJS, write RxJS code, or design applications with the patterns defined in RxJS.  You might be sold on RxJS, you might be skeptical.  So there are many parts designed for different people at different stages in their journey with the library.
+This book is unusual in its... bookiness.  You might be looking to understand RxJS, write RxJS code, or design applications with the patterns defined in RxJS.  You might be sold on RxJS, you might be skeptical.  So there are many parts designed for different people at different stages in their journey with the library.
+
+In my experience, there are 5 stages of RxJS:
+
+1. I know what RxJS is and some of its big ideas.
+1. I kinda know what can be done with RxJS, even I don't know how.
+1. I can read RxJS code and see how it accomplishes its goals
+1. I can use RxJS to solve problems
+1. I can reliably troubleshoot RxJS for correctness and performance
 
 With that in mind, I recommend a bit of caution.  If you're reading something, and you realize that you haven't understood anything for the last 2 minutes, stop.  Maybe that part isn't for you right now.  Take a look at it, register "I know *that* you can do this particular thing with RxJS, I just don't know *how* you can do this particular thing with RxJS."  And that might be the thing you need to know right now.
 
@@ -39,21 +47,35 @@ Finally, there is an index.  If all goes well, the index will be your most poten
 ---
 ## Table of Contents
 
-[What is RxJS?](/00-what-is-rxjs.md) | [What is Reactive Programming?](/01-what-is-reactive-programming.md?)
+[What is RxJS?](./00-what-is-rxjs.md) | [What is Reactive Programming?](./01-what-is-reactive-programming.md?) | [How much JavaScript and TypeScript do I need?](./02-how-much-javascript.md)
 
 ---
 
-### [Section I: A Tour of the Library](/section-1/00-home.md)
+### [Section I: A Tour of the Library](./section-1/00-home.md)
 
-[Welcome to the Library!](./section-1/00-home.md) | [1. The Observable Universe](./section-1/01-the-observable-universe.md) | [2. How To Make An Observable](./section-1/02-how-to-make-an-observable.md) | [3. Pipe Dreams](./section-1/03-pipe-dreams.md) | [4. Array-like Operators](./section-1/04-array-like-operators.md) | [5. RxJS For Processes](./section-1/05-rxjs-for-processes.md) | [6. Combining Observables](./section-1/06-combining-observables.md) | [7. Timing](./section-1/07-timing.md) | [8. Rx-Specific Operators](./section-1/08-rx-specific-operators.md) | [9. Testing RxJS](./section-1/09-testing-rxjs.md) | [10. RxJS Graveyard](./section-1/10-rxjs-graveyard.md) | [11. Just My Types](./section-1/11-just-my-types.md) | [12. What's Next?](./section-1/12-whats-next.md)
+* [Welcome to the Library!](./section-1/00-home.md)
+* [1. The Observable Universe](./section-1/01-the-observable-universe.md)
+* [2. How To Make An Observable](./section-1/02-how-to-make-an-observable.md)
+* [3. Pipe Dreams](./section-1/03-pipe-dreams.md)
+* [4. Array-like Operators](./section-1/04-array-like-operators.md)
+* [5. RxJS For Processes](./section-1/05-rxjs-for-processes.md)
+* [6. Combining Observables](./section-1/06-combining-observables.md)
+* [7. Timing](./section-1/07-timing.md)
+* [8. Rx-Specific Operators](./section-1/08-rx-specific-operators.md)
+* [9. Testing RxJS](./section-1/09-testing-rxjs.md)
+* [10. RxJS Graveyard](./section-1/10-rxjs-graveyard.md)
+* [11. Just My Types](./section-1/11-just-my-types.md)
+* [12. What's Next?](./section-1/12-whats-next.md)
 
 ---
 
-### [Section II: Articles](/section-2/00-home.md)
+### [Section II: Articles](./section-2/00-home.md)
+
+* [Reducers For Fun And Profit](./section-2/01-reducers-for-fun-and-profit.md)
 
 ---
 
-### [Section III: RxJS Cookbook](/section-3/00-home.md)
+### [Section III: RxJS Cookbook](./section-3/00-home.md)
 
 ___
 
