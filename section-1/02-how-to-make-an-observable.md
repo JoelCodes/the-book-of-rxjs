@@ -78,7 +78,7 @@ of(3).subscribe({
 // Complete From of(3)
 ```
 
-<iframe src="https://replit.com/@JoelShinness1/book-of-rxjs-from" width="600" height="400"></iframe>
+<iframe src="https://replit.com/@JoelShinness1/book-of-rxjs-from?embed=true" width="800" height="400"></iframe>
 
 The next one is `from`.  You can think of `from` as being able to "coerce" things into Observables.  What kind of things can you coerce into an `Observable`?  Well there's a type just for that: `ObservableInput`.  an `ObservableInput<T>` includes arrays, promises, iterables, async iterables, Observables, and a few more that you probably won't run into.
 
