@@ -151,13 +151,12 @@ So, for each of the operators going forward, I'm going to describe it, but I'm a
 
 Well, I'm certainly going to try.
 
-> NOTE: for the time being, there's no more prose here.  This is an outline with some code written for each operator, but eventually, I STG, this will be a well-crafted, clear-yet-thorough explanation of each operator.
-
 ## One goes in, one comes out
 
 Okay, let's get to it.  We're gonna start with two operators of type `OperatorFunction<A, B>` that take a the granddaddy of all operators: `map`.  It's an oldie and a goldie.  In fact, in Category Theory, there's a special name given to a data source that can implement map: "Functor".  In plain English, we use make to make an Observable where every input item "maps" to one output item.
 
 ```ts
+// Iterable Version
 function map<A, B>(txfm: (item:A, index:number) => B){
   return function *(source:Iterable<A>):Iterable<B>{
     let index = 0;
@@ -166,11 +165,25 @@ function map<A, B>(txfm: (item:A, index:number) => B){
     }
   }
 }
+
+// Observable Version
+function map<A, B>(txfm: (item:A, index:number) => B){
+  return (source:Observable<A>) => new Observable<B>(subscriber => {
+    let index = 0;
+    const subscription = source.subscribe({
+      next(val){ subscriber.next(txfm(val, index++)); },
+      complete(){ subscriber.complete(); },
+      error(err:any){ subscriber.error(err); }
+    })
+    return () => { subscription.unsubscribe(); };
+  });
+}
 ```
 
 There's another one like it called `scan`, and `scan` is an absolute workhorse.  It employs the *reducer* function pattern, so it fits in well with code from Redux or React's `useReducer` hook.
 
 ```ts
+// Iterable Version
 function scan<A, B>(reducer:(accum: B, item:A, index:number) => B, seed:B) {
   return function *(source:Iterable<A>):Iterable<B>{
     let index = 0;
@@ -180,6 +193,23 @@ function scan<A, B>(reducer:(accum: B, item:A, index:number) => B, seed:B) {
       yield current;
     }
   }
+}
+
+// Observable Version
+function scan<A, B>(reducer:(accum: B, item:A, index:number) => B, seed:B) {
+  return (source:Observable<A>) => new Observable<B>(subscriber => {
+    let index = 0;
+    let current = seed;
+    const subscription = subscriber.subscribe({
+      next(val){
+        current = reducer(current, val);
+        subscriber.next(current);
+      },
+      complete(){ subscriber.complete(); },
+      error(err:any){ subscriber.error(err); }
+    });
+    return () => { subscription.unsubscribe(); };
+  });
 }
 ```
 
@@ -229,6 +259,7 @@ type ErrorNotification = { kind: 'E', error: any };
 
 type ObservableNotification<T> = NextNotification<T> | CompleteNotification | ErrorNotification;
 
+// Iterable Versions
 function *materalize<T>(source:Iterable<T>):Iterable<ObservableNotification<T>>{
   try {
     for(const value of items){
@@ -248,6 +279,19 @@ function *dematerialize<T>(source:Iterable<ObservableNotification<T>>):Iterable<
       case 'N': yield item.value;
     }
   }
+}
+
+// Observable Versions
+function materialize<T>(source:Observable<T>){
+  return new Observable<ObservableNotification<T>>(subscriber => {
+    const subscription = source.subscribe({
+      next(value){ subscriber.next({kind: 'N', value}); },
+      complete(){ 
+        subscriber.next({kind: 'C'});
+        subscriber.complete();
+      }
+    })
+  });
 }
 ```
 
@@ -483,6 +527,7 @@ function count<T>(predicate:(item:T, index:number) => boolean = ALWAYS_TRUE){
   }
 }
 
+// Observable version
 function count<T>(predicate:(item:T, index:number) => boolean = ALWAYS_TRUE){
   return (source:Observable<T>) => new Observable<number>(subscriber => {
     let index = 0;

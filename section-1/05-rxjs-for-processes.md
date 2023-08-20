@@ -8,8 +8,10 @@
 * tap
 * finalize
 
+## Robustness
 * catchError
 * throwError
+
 
 * repeat
 * retry
