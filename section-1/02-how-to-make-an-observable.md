@@ -404,11 +404,13 @@ There's also a utility for `requestAnimationFrame`.  This one is browser specifi
 
 Now, you may be asking yourself, "What about `setImmediate`? What about `process.nextTick`?  What if I want logic that will use one timing mechanism in one environment and a different one in another?"  RxJS has a mechanism for this called `Scheduler`'s, and `Scheduler` implementations for animationFrames, `setImmediate`, and more.
 
-If you have a scheduler you like, you can use `scheduled` to take an `ObservableInput` and emit its signals with whichever timing mechanism you like.  Again, a subject we'll discuss in length later.
+If you have a `Scheduler` that wraps a mechanism you like, you can use `scheduled` to take an `ObservableInput` and emit its signals with whichever timing mechanism you like.  Again, a subject we'll discuss in length later.
 
 ## How To Talk To The Internet
 
-RxJS is such a general-purpose library, that it seems 
+RxJS is such a general-purpose library, that it seems strange sometimes to see it include any utilities specific to an environment or a task.  You might say that RxJS is usually so... un-opinionated about where its data comes from and where its data goes.
+
+That said, talking to API's and WebSockets is a common enough use case, and RxJS provides some specific utilities for it.  
 
 * ajax
 * fetch
