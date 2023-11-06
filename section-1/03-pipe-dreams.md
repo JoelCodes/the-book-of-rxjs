@@ -1,6 +1,6 @@
 # Chapter 3: Pipe Dreams
 
-[<<Prev](./02-how-to-make-an-observable.md) | [Home](../README.md) | [Next >>](./04-array-like-operators.md)
+[<< Prev](./02-how-to-make-an-observable.md) | [Home](../README.md) | [Next >>](./04-array-like-operators.md)
 
 Before we get into any more of the library, it's time to talk about another important building block.  It's all well and good making an Observable and subscribing to it, but one of the promises of Observables was that they were transformable.  If we have an Observable, we should be able to mold it into any shape we want.
 
@@ -53,7 +53,7 @@ type MonoTypeOperatorFunction<A> = OperatorFunction<A, A>
 
 Simple as that.
 
-So if we want to do a map, we don't call `Observable.map`.  We grab `map` from the library and call it!  Now, technically speaking, in the most "um, actually..." way, `map` isn't an operator: it's an **operator factory**.  It's a function that *produces* an operator function, which we then feed the observable to.  Like this!
+So if we want to do a map, we don't call `Observable.map`.  We grab `map` from the library and call it!  Now, technically speaking, in the most "um, actually..." way, `map` isn't an operator: it's an **operator factory**.  It's a function that *produces* an operator function, and we pass the observable to that operator function and get a new one out.  Like this!
 
 ```ts
 const squareNumber = map<number, number>(x => x * x);
@@ -85,7 +85,7 @@ filter(x => x % 2 !== 0)(
 // Next 25
 ```
 
-Gross.  That's gross.  In the immortal words of every informercial, "There's got to be a better way!"
+Gross.  That's gross.  In the immortal words of every infomercial, "There's got to be a better way!"
 
 Well, yes, Observable did get rid of all those extra methods, but it kept a reeeeally important one: `pipe`.  What does `pipe` do?  Well it lets us take our list of operators and apply them one at a time in order, e.g.
 
@@ -149,39 +149,41 @@ function identity3<A>(source:Observable<A>):Observable<A>{
 }
 ```
 
-All right!  Now we're talking!  But we might also want to control when values or what values get sent, like in the case of `map` and `filter`.  Let's make an Observer that'll let us have some more fine tuned control.
+All right!  Now we're talking!  Also, a Subscription counts as a `TeardownLogic`, so we can save ourselves a few lines of code here.
 
 ```ts
-function identity4<A>(source:Observable<A>):Observable<A>{
+function identity3<A>(source:Observable<A>):Observable<A>{
   return new Observable<A>(subscriber => {
-    const subscription = source.subscribe({
-      next(value:A){ subscriber.next(value); },
-      complete(){ subscriber.complete(); },
-      error(err:any){ subscriber.error(err); }
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
+    return source.subscribe(subscriber);
   });
 }
 ```
 
-Oh, now that's really fine-tuned control.  I mean, honestly, it's a pretty straight shot from this to making a `map` of our own:
+But we might also want to control when values or what values get sent, like in the case of `map` and `filter`.  Let's make an Observer that'll let us have some more fine tuned control.
+
+```ts
+function identity4<A>(source:Observable<A>):Observable<A>{
+  return new Observable<A>(subscriber => {
+    return source.subscribe({
+      next(value:A){ subscriber.next(value); },
+      complete(){ subscriber.complete(); },
+      error(err:any){ subscriber.error(err); }
+    });
+  });
+}
+```
+
+Oh, now that's really fine-tuned control. I mean, honestly, it's a pretty straight shot from this to making a `map` of our own:
 
 ```ts
 function map1<A, B>(txfm:(item:A, index:number) => B):OperatorFunction<A, B>{
   return (source:Observable<A>) => new Observable<B>(subscriber => {
     let index = 0;
-    const subscription = source.subscribe({
+    return source.subscribe({
       next(value:A){ subscriber.next(txfm(value, index++)); },
       complete(){ subscriber.complete(); },
       error(err:any){ subscriber.error(err); }
     });
-
-    return () => {
-      subscription.unsubscribe();
-    };
   });
 }
 ```
@@ -192,7 +194,7 @@ And the `filter` writes itself as well!
 function filter<A>(test:(item:A, index:number) => boolean):MonoTypeOperatorFunction<A> {
   return (source:Observable<A>) => new Observable<A>(subscriber => {
     let index = 0;
-    const subscription = source.subscribe({
+    return source.subscribe({
       next(value:A){
         if(test(value, index++)){
           subscriber.next(value);
@@ -201,11 +203,7 @@ function filter<A>(test:(item:A, index:number) => boolean):MonoTypeOperatorFunct
       complete(){ subscriber.complete(); },
       error(err:any){ subscriber.error(err); }
     });
-
-    return () => {
-      subscriber.unsubscribe();
-    };
-  })
+  });
 }
 ```
 
@@ -233,7 +231,7 @@ Its stated purpose is to "perform a side effect" on those events, but we're goin
 I'm going to create a new function called `debugger` that takes in a label and returns a `TapObserver<any>` that'll log all the events to the console.  I'll also add a flag to allow or disallow `finalize`.  After all, if we're firing `error`, `complete`, and `unsubscribe`, maybe `finalize` is too much noise.
 
 ```ts
-function debugger(label:string, withFinalize = false):Partial<TapObserver<any>>{
+function debug(label:string, withFinalize = false):Partial<TapObserver<any>>{
   const allButFinalize: Omit<TapObserver<any>, 'finalize'> = {
     subscribe:() => { console.log(label, 'Subscribe'); },
     unsubscribe:() => { console.log(label, 'Unsubscribe'); },
@@ -253,11 +251,11 @@ Now we can string these inbetween the steps of our pipeline above, and see *exac
 
 ```ts
 from([1, 2, 3, 4, 5]).pipe(
-  tap(debugger('Source')),
+  tap(debug('Source')),
   map(x => x * x),
-  tap(debugger('After Map')),
+  tap(debug('After Map')),
   filter(x => x * 2 !== 0)
-  tap(debugger('After Filter')),
+  tap(debug('After Filter')),
 ).subscribe(/* Do we really need an observer here? */);
 
 // CONSOLE:
@@ -296,4 +294,4 @@ What I've done is gone through every operator (and frankly, every single compone
 * **Timing**: The operators that recognize that Observables are happening over time.  This includes scheduling for synchronization, and dealing with "backpressure" (when too many signals are coming in for your output processing).
 * **Rx-Specific Stuff**: The operators that are just about managing, sharing, and replaying subscriptions.
 
-[<<Prev](./02-how-to-make-an-observable.md) | [Home](../README.md) | [Next >>](./04-array-like-operators.md)
+[<< Prev](./02-how-to-make-an-observable.md) | [Home](../README.md) | [Next >>](./04-array-like-operators.md)

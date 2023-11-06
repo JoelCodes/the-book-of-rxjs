@@ -1,6 +1,6 @@
 # Chapter 1: The Observable Universe
 
-[<<Prev](./00-home.md) | [Home](../README.md) | [Next >>](./02-how-to-make-an-observable.md)
+[<< Prev](./00-home.md) | [Home](../README.md) | [Next >>](./02-how-to-make-an-observable.md)
 
 So far, we've been speaking in very broad, abstract terms.  It's been all "Reactive Programming" and "Subjects" and "Signals" and the like.  How does any of that apply to this library?
 
@@ -192,7 +192,7 @@ ajaxCall$.subscribe({next:handleResponse, error:handleError});
 
 These two piece of code look very, very similar, and they'll produce the same result eventually, but there's an interesting difference at the point of the `/* Banana */`.  One of those two calls has fired a network call, and one of them has not.  When I attach handlers to the `then` method of the Promise, I'm accessing (or waiting to access) the result of a process that has already started.  When I subscribe to the observable, I'm asking the process to start.
 
-In other words, the promise represents the result of an operation.  The observable represents the whole operation.
+In other words, the promise represents the **result** of an operation.  The observable represents the **whole operation**.
 
 Lets use the Observable constructor to do `setInterval` to see this in action.  I'll make the Observable like this:
 
@@ -217,7 +217,7 @@ onceASecond$.subscribe(simpleObserver);
 // ...
 ```
 
-As you can see, this creates an observable that counts up from 0 once a second, and it was able to do this setup logic at the beginning of the call.  And notable, it also goes forever.  There is a function called `interval` in the library that does just this exact thing.
+As you can see, this creates an observable that counts up from 0 once a second, and it was able to do this setup logic at the beginning of the call.  And notably, it also goes forever. I've seen plenty of code that starts an interval at the beginning that just runs until the app ends, so that's not bad.
 
 So it's worth noting: ***Observables are not guaranteed to end on their own***.  Arrays may have that guarantee, but observables don't.  That's a trait they share with iterables, async iterables and promises, so they're in good company.
 
@@ -293,7 +293,7 @@ onceASecond$.subscribe(simpleObserver);
 // ...
 ```
 
-Forgetting to clear an interval or timeout or event listener or even an animation frame is a really easy way to get memory leaks in JavaScript, or at the very least, to ensure that your app is doing a lot of unnecessary work.  We need a way to know when the work is done so we can clear up that interval.  Thank goodness that RxJS knows exactly how to do this!  If we return a function in the callback to the constructor, it'll do all our cleanup!
+Forgetting to clear an interval or timeout or event listener or even an animation frame is a really easy way to get memory leaks in JavaScript, or at the very least, to ensure that your app is doing a lot of unnecessary work.  We need a way to know when the work is done so we can clear up that interval.  This is one place the Observable shines!  If we return a function in the callback to the constructor, it'll do all our cleanup!
 
 ```typescript
 const TIMEOUT_DURATION = 1000;
@@ -430,4 +430,4 @@ Honestly, at this point, we could call it quits, because we really have everythi
 
 But as I said earlier, RxJS is also a repository of patterns.  Everything that follows is honestly just "utilities", but they're also what will make your code readable and keep you from falling into bad patterns (or having to find the errors yourself), so let's keep going.
 
-[<<Prev](./00-home.md) | [Home](../README.md) | [Next >>](./02-how-to-make-an-observable.md)
+[<< Prev](./00-home.md) | [Home](../README.md) | [Next >>](./02-how-to-make-an-observable.md)

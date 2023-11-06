@@ -47,7 +47,7 @@ Finally, there is an index.  If all goes well, the index will be your most poten
 ---
 ## Table of Contents
 
-[What is RxJS?](./00-what-is-rxjs.md) | [What is Reactive Programming?](./01-what-is-reactive-programming.md?) | [How much JavaScript and TypeScript do I need?](./02-how-much-javascript.md)
+[What is RxJS?](./00-what-is-rxjs.md) | [How much JavaScript and TypeScript do I need?](./01-how-much-javascript.md)
 
 ---
 
@@ -72,6 +72,9 @@ Finally, there is an index.  If all goes well, the index will be your most poten
 ### [Section II: Articles](./section-2/00-home.md)
 
 * [Reducers For Fun And Profit](./section-2/01-reducers-for-fun-and-profit.md)
+* [Lazy Array Transformation](./section-2/02-lazy-array-transformation.md)
+* [Rx Utils I Keep Making](./section-2/03-rx-utils-i-keep-making.md)
+* [Reactive Programming](./section-2/04-reactive-programming.md)
 
 ---
 
@@ -82,6 +85,5 @@ ___
 ### RxJS Libary Index
 
 [All](./index/all.md) | [Classes](./index/classes.md) | [Subjects](./index/classes.md#subjects) | [Functions](./index/functions.md) | [Pipeable Operators](./index/functions.md#pipeable-operators) | [Creation Operators](./index/functions.md#creation-operators) | [Schedulers](./index/consts.md#schedulers) | [Consts](./index/consts.md) | [Types](./index/types.md) | [Deprecated](./index/deprecated.md)
-
 
 [Next >>](./00-what-is-rxjs.md)

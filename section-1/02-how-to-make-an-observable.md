@@ -1,6 +1,6 @@
 # Chapter 2: How to Make an Observable
 
-[<<Prev](./01-the-observable-universe.md) | [Home](../README.md) | [Next >>](./03-array-like-operators.md)
+[<< Prev](./01-the-observable-universe.md) | [Home](../README.md) | [Next >>](./03-array-like-operators.md)
 
 So, you're up to speed on what an Observable is.  It's a thing that manipulates an Observer (or emits signals to an Observer), it represents a stream of data that may complete or throw an error, and it can represent some arbitrary async operation.
 
@@ -408,19 +408,112 @@ If you have a `Scheduler` that wraps a mechanism you like, you can use `schedule
 
 ## How To Talk To The Internet
 
-RxJS is such a general-purpose library, that it seems strange sometimes to see it include any utilities specific to an environment or a task.  You might say that RxJS is usually so... un-opinionated about where its data comes from and where its data goes.
+RxJS is such a general-purpose library, that it seems strange sometimes to see it include any utilities specific to an environment or a task.  You might say that RxJS is generally pretty un-opinionated about where its data comes from and where its data goes.
 
-That said, talking to API's and WebSockets is a common enough use case, and RxJS provides some specific utilities for it.  
+That said, talking to API's and WebSockets is a common enough use case, and RxJS provides some specific utilities for it.  For your everyday AJAX calls, it has two functions:
+
+1. `ajax` - wraps the `XMLHttpRequest` API.
+1. `fromFetch` - wraps the `fetch` API.
 
 * ajax
-* fetch
+* fromFetch
 * WebSocketSubject
 
 ## Lightning Round!!
+
+// TODO: fill in these items
 
 * using
 * range
 * generate
 * iif
 
-[<<Prev](./01-the-observable-universe.md) | [Home](../README.md) | [Next >>](./03-array-like-operators.md)
+## Let's Make Our Own: `deferWithAbort`
+
+Well, let's make our first utility function!  This will be our first foray into making RxJS utilities for ourselves, instead of depending on the library maintainers to do it for us.  And let's be honest, I'm perfectly fine with that.  I'd rather not load the RxJS library with too much extra stuff, and I find RxJS to be easy enough to write general purpose utilities for, so let's do it!
+
+> TRIGGER WARNING:
+> I'm about to use the word "abort" over and over.  It's the name of an actual JavaScript API, so I can't just switch it with "cancel", but if you find the word "abort" to be a little jarring, be kind to yourself.
+
+Okay, this function is going to be called `deferWithAbort`.  It's for taking some async functionality that uses the `AbortController` API, and wrap it in an Observable that will call abort for us.  It's basically `defer`, but it'll pass an `AbortSignal` instance to create whatever we're coercing into an Observable.
+
+```ts
+function deferWithAbort<T>(factory:(signal:AbortSignal) => ObservableInput<T>):Observable<T>;
+```
+
+Okay, so here's the simplest version we can write with what we have now: we'll return an observable that creates an `AbortController` on subscribe
+
+```ts
+function deferWithAbort<T>(factory:(signal:AbortSignal) => ObservableInput<T>):Observable<T> {
+  return new Observable<T>(observer => {
+    const controller = new AbortController();
+  });
+}
+```
+
+Then we create something that can be coerced into an Observable, use `from` to coerce it, and subscribe our observer to it, like so:
+
+```ts
+function deferWithAbort<T>(factory:(signal:AbortSignal) => ObservableInput<T>):Observable<T> {
+  return new Observable<T>(observer => {
+    const controller = new AbortController();
+    const subscription = from(factory(controller.signal)).subscribe(observer);
+  });
+}
+```
+
+Now, we just need to call the `controller.abort` on teardown:
+
+```ts
+import { ObservableInput, Observable, from } from "rxjs";
+
+function deferWithAbort<T>(factory:(signal:AbortSignal) => ObservableInput<T>):Observable<T> {
+  return new Observable<T>(observer => {
+    const controller = new AbortController();
+    const subscription = from(factory(controller.signal)).subscribe(observer);
+    return () => {
+      subscription.unsubscribe();
+      controller.abort();
+    }
+  });
+}
+```
+
+Now, let's clean up this code a bit by returning the subscription, and adding the abort to it.
+
+```ts
+import { ObservableInput, Observable, from } from "rxjs";
+
+function deferWithAbort<T>(factory:(signal:AbortSignal) => ObservableInput<T>):Observable<T> {
+  return new Observable<T>(observer => {
+    const controller = new AbortController();
+    return from(factory(controller.signal))
+      .subscribe(observer)
+      .add(() => { controller.abort() });
+  });
+}
+```
+
+Now, we can use this with all sorts of libraries!  Let's make an async iterable that requires an `abortSignal` to finish
+
+```ts
+function countSlowlyTillAbort(signal:AbortSignal, cb:(n:number) => void){
+  let n = 0;
+  function tick(){
+    if(signal.aborted) return;
+    cb(n++);
+    setTimeout(tick, 1000);
+  }
+  tick();
+}
+
+const subscription = deferWithAbort(signal => new Observable(observer => {
+  countSlowlyTillAbort(signal, x => observer.next(x))
+})).subscribe(console.log);
+
+setTimeout(() => {
+  subscription.unsubscribe();
+}, 3500);
+```
+
+[<< Prev](./01-the-observable-universe.md) | [Home](../README.md) | [Next >>](./03-array-like-operators.md)

@@ -1,6 +1,6 @@
 # How Much JavaScript and TypeScript Do I Need To Know?
 
-[<<Prev](./01-what-is-reactive-programming.md) | [Home](./README.md) | [Next >>](./section-1/00-home.md)
+[<< Prev](./00-what-is-rxjs.md) | [Home](./README.md) | [Next >>](./section-1/00-home.md)
 
 # JavaScript
 

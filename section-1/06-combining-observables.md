@@ -31,4 +31,8 @@
 * takeUntil, skipUntil
 * window, windowWhen, windowToggle
 
+## Let's make a new flatMap!
+
+* semaphoreMap, semaphoreAll
+
 [<<Prev](./05-rxjs-for-processes.md) | [Home](../README.md) | [Next >>](./07-timing.md)

@@ -1,6 +1,6 @@
 # Chapter 4: Array-Like Operators
 
-[<<Prev](./03-pipe-dreams.md) | [Home](../README.md) | [Next >>](./05-rxjs-for-processes.md)
+[<< Prev](./03-pipe-dreams.md) | [Home](../README.md) | [Next >>](./05-rxjs-for-processes.md)
 
 This might be me, but I find that a lot of my app code, the code that really ties my apps together, follows the same pattern quite a lot:
 
@@ -44,7 +44,7 @@ Okay, I said arrays earlier, but this isn't really about arrays: it's about **it
 * Be looped over using `for(const item of iterable){ /* do something */ }` until there are no more items.
 * Be copied into an array using `const newArray = [...iterable]` or `const newArray = Array.from(iterable);`
 
-However, not every iterable is like an array.  For instance:
+However, not every iterable is *exactly* like an array.  For instance:
 
 * Arrays are finite, since they need to have all of their data in memory all at once.  Iterables could be infinite.
 * Arrays have a fixed length.  An iterable's length could be unknown until it stops.
@@ -52,104 +52,387 @@ However, not every iterable is like an array.  For instance:
 * Arrays are mutable, but you can't assume that an iterable is mutable
 * With arrays, you can change the order of items.  You can't with iterables.
 
-The easiest way to make an iterable that isn't an array is to use a **generator** function.  These are easy to identify by the use of the `*` in its type signature, and the `yield` keyword in its block.  Here's an example:
+All that to say, our operators can't take it for granted that they know how many items they have, or even if their source is guaranteed to end; they can't do mutations, or change the order; and they don't know about any values after the one they're looking at, but might no about ones before.
+
+Oh, and while we're at it, I'm also requiring that they must operate synchronously by default.
+
+## Start at the Top
+
+Maybe you've gotten this far, and you'd like me to tell you something useful.  You know what, that's totally fair.  So, I'm gonna give you my top 5 array-like operator / operator families right off the top.  It's only fair.
+
+1. `map`
+
+What list of top-tier array operators wouldn't start with `map`? It's just basic-level data transformation.  One item goes in, a new item goes out.  It's like a makeover show, but for our data.
 
 ```ts
-function *countToThree():Iterable<number>{
-  yield 1;
-  yield 2;
-  yield 3;
-}
+from([1,2,3,4]).pipe(
+  tap(debug('Source')),
+  map((x) => x * x)
+).subscribe(debug('After Map'));
+```
 
-for(const item of countToThree()){
-  console.log('From Generator', item);
-}
+2. `filter`
+
+Another oldie but goldie.  Filter works exactly like you'd expect.  When a value is sent to it, `filter` runs a test on that value to decide whether or not to pass that value on.
+
+```ts
+from([1,2,3,4])
+  .pipe(
+    tap(debug('Source')),
+    map(x => x * x),
+    tap(debug('After Map')),
+    filter(x => x % 2 !== 0),
+    tap(debug('After Filter'))
+  ).subscribe()
 
 // CONSOLE:
-// From Generator 1
-// From Generator 2
-// From Generator 3
+// After Filter Subscribe
+// After Map Subscribe
+// Source Subscribe
+// Source Next 1
+// After Map Next 1
+// After Filter Next 1
+// Source Next 2
+// After Map Next 4
+// Source Next 3
+// After Map Next 9
+// After Filter Next 9
+// Source Next 4
+// After Map Next 16
+// Source Complete
+// After Map Complete
+// After Filter Complete
+```
 
-console.log('Into an array', [...countToThree()]);
+There's some added goodness to `filter` for all you TypeScript fans: if you pass a [type predicate](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates) as your predicate, your output Observable is of that narrower type.  In the example below, we create a type predicate that knows if a `string` fits the narrower definition of `TicTacToeMark`.  By passing this to the `filter` function, we go from the broader `Observable<string>` to the narrower `Observable<TicTacToeMark>`.
+
+```ts
+const string$:Observable<string> = from(["A", "X", "O"]);
+
+type TicTacToeMark = 'X'|'O';
+
+function isTicTacToeMark(s:string):s is TicTacToeMark {
+  return s === 'X' || s === 'O';
+}
+
+const xsAndOs$:Observable<TicTacToeMark> = string$.pipe(
+  filter(isTicTacToeMark)
+);
+```
+
+3. `scan` / `reduce`
+
+If you've been in the world of JavaScript for long enough, or if you've dipped into the world of functional programming, you might know the glory of reducers.  I go at length on their goodness [here](../section-2/01-reducers-for-fun-and-profit.md), but the gist is this: we can take an entire sequence and boil it down (or reduce it down) to one value, something that tells us about the whole collection.  All we need is a seed value, and a function that takes the current running value, and updates it based on a current value.
+
+```ts
+const nums = [1,2,3,4]
+const sumOfNums = nums.reduce((aggregate, item) => aggregate + item, 0);
+const prodOfNums = nums.reduce((aggregate, item) => aggregate * item, 1);
+
+console.log(sumOfNums, prodOfNums);
+// CONSOLE:
+// 10 24
+```
+
+And good news, we have a `reduce` function that works that way in RxJS!
+
+```ts
+const num$ = from([1,2,3,4])
+const sumAndProdOfNum$ = num$.pipe(
+  reduce(([sum, prod], item) => [sum + item, prod * item], [0, 1])
+)
+
+sumAndProdOfNum$.subscribe(debug('Sum And Prod'));
 
 // CONSOLE:
-// Into an array [1, 2, 3]
+// Sum And Prod Next [10, 24]
+// Sum And Prod Complete
 ```
 
-Now, I could also create an infinite generator very easily.
+But there's a behaviour here that has a serious drawback: it only emits once, when the observable completes.  When you're dealing with arrays, that's not really an issue, since "reduce all the values I have so far" and "reduce all the values in the collection" mean the same thing.  With Observables, those two things could, in fact, be different.  We may be getting new values in a second, or we may be dealing with an Observable that never ends, but we still may want to get the totals now.
+
+This is exactly what `scan` gives us.  `scan` has the same signature as `reduce`, but instead of waiting for the end to give us all the values, it gives it to us as new values roll in.
 
 ```ts
-function *countForever():Iterable<number>{
-  for(let i = 0; true; i++){
-    yield i;
-  }
-}
-```
+const num$ = from([1,2,3,4])
+const sumAndProdOfNum$ = num$.pipe(
+  scan(([sum, prod], item) => [sum + item, prod * item], [0, 1])
+)
 
-And if I ran this as is, it would run forever.
-
-```ts
-for(const item of countForever()){
-  console.log('Forever', item);
-}
+sumAndProdOfNum$.subscribe(debug('Sum And Prod'));
 
 // CONSOLE:
-// Forever 0
-// Forever 1
-// Forever 2
-// Forever 3
-// Forever 4
-// ... &c.
+// Sum And Prod Next [1, 1]
+// Sum And Prod Next [3, 2]
+// Sum And Prod Next [6, 6]
+// Sum And Prod Next [10, 24]
+// Sum And Prod Complete
 ```
 
-But if I want an iterable to stop, I can interrupt it early.  I just have to `break` or `return` from the loop.
+This is another absolute juggernaut.  If you have any situation with a running state that's being calculated, and you want to know what that state is at any given moment, this is the one.  When I have a weird situation to express with RxJS, I often ask myself, "How could I represent this with `scan`?" as my first question.
+
+Here's a practical example.  Let's say you had a batch of sales records, and you wanted to see the sales total for each sales rep, as well as their biggest sale.
 
 ```ts
-for(const item of countForever()){
-  console.log('Just to three', item);
-  if(item === 3) break;
-}
-console.log('Done!');
+import { from, scan } from "rxjs";
+
+type SalesRecord = {name: string, amount: number};
+type Scoreboard = Record<string, {total:number, max:number}>
+
+const sale$ = from([
+  {name: 'Jeff', amount: 100},
+  {name: 'Janet', amount: 200},
+  {name: 'Jeff', amount: 100},
+  {name: 'Mike', amount: 300}
+])
+
+sale$.pipe(
+  scan<SalesRecord, Scoreboard>((agg, {name, amount}) => {
+    const lastRecordForName = agg[name];
+    const nextRecordForName = 
+      lastRecordForName === undefined
+        ? { total: amount, max: amount }
+        : { 
+          total: lastRecordForName.total + amount, 
+          max: Math.max(lastRecordForName.max, amount) 
+        };
+    return {
+      ...agg,
+      [name]: nextRecordForName
+    }
+  }, {})
+).subscribe(console.log);
 
 // CONSOLE:
-// Just to three 0
-// Just to three 1
-// Just to three 2
-// Just to three 3
-// Done!
+// { Jeff: { total: 100, max: 100 } }
+// { Jeff: { total: 100, max: 100 }, Janet: { total: 200, max: 200 } }
+// { Jeff: { total: 200, max: 100 }, Janet: { total: 200, max: 200 } }
+// {
+//   Jeff: { total: 200, max: 100 },
+//   Janet: { total: 200, max: 200 },
+//   Mike: { total: 300, max: 300 }
+// }
 ```
 
-And since I don't want this section of the chapter to go on forever, I'm going to keep it here.  There's an async version of this as well, but we'll leave that alone for the time being.
-
-So what does an iterable operator look like?  Well, let's write the identity.  I need a function that will take in an iterable and return an iterable
+And if you pipe that stream of state updates into a `BehaviorSubject`, you know have an object that you can query for that state that will also update you when the state has changed.
 
 ```ts
-function identityIterable<A>(source:Iterable<A>):Iterable<A>{
-  return source;
-}
+import { BehaviorSubject, from, scan } from "rxjs";
+
+type SalesRecord = {name: string, amount: number};
+type Scoreboard = Record<string, {total:number, max:number}>
+
+const scoreboardState$ = new BehaviorSubject<Scoreboard>({});
+scoreboardState$.subscribe(() => {
+  console.log(scoreBoard$.value);
+});
+
+const sale$ = from([
+  {name: 'Jeff', amount: 100},
+  {name: 'Janet', amount: 200},
+  {name: 'Jeff', amount: 100},
+  {name: 'Mike', amount: 300}
+])
+
+sale$.pipe(
+  scan<SalesRecord, Scoreboard>((agg, {name, amount}) => {
+    const lastRecordForName = agg[name];
+    const nextRecordForName = 
+      lastRecordForName === undefined
+        ? { total: amount, max: amount }
+        : { 
+          total: lastRecordForName.total + amount, 
+          max: Math.max(lastRecordForName.max, amount) 
+        };
+    return {
+      ...agg,
+      [name]: nextRecordForName
+    }
+  }, {})
+).subscribe(scoreboardState$);
+
+
+// CONSOLE:
+// { Jeff: { total: 100, max: 100 } }
+// { Jeff: { total: 100, max: 100 }, Janet: { total: 200, max: 200 } }
+// { Jeff: { total: 200, max: 100 }, Janet: { total: 200, max: 200 } }
+// {
+//   Jeff: { total: 200, max: 100 },
+//   Janet: { total: 200, max: 200 },
+//   Mike: { total: 300, max: 300 }
+// }
 ```
 
-And let's expand this to use a generator with `yield`:
+Now, in our little case here, there's no difference in the output.  But in a real application, any function that wasn't tied to the update cycle would still be able to call `scoreboardState$.value` to get the current state of the scoreboard, and any component of our system would be able to connect to and disconnect from the `scoreboardState$` to get the current state and any updates.
+
+4. `take` (and `takeWhile`, `skip`, and `skipWhile`, I guess).
+
+You know, I wanted to just make this entry about `take`, but its kinda hard to do without including its buddy, `skip`, since they're very similar in their description.  They let us define limits on when we start emitting items from a source, and when we stop emitting items from a source.  Their most basic variation does this with a count.
+
+You've probably used the `slice` method of arrays to get the same behaviour. Let's say you had an array like below, and you only wanted to skip the first one and take the next 3.
 
 ```ts
-function *identityIterable<A>(source:Iterable<A>):Iterable<A>{
-  for(const item of source){
-    yield item;
-  }
-}
+const nums = [1,2,3,4,5];
+const allButTheFirst = nums.slice(1); // [2,3,4,5]
+const allButTheFirstAndLast = allButTheFirst.slice(0, 3); // [2,3,4]
 ```
 
-I can also use the `yield *` with another iterable to say, "iterate through this iterable one by one".
+Yeah, more than likely, you'd actually use `nums.slice(1, 4)`, but `slice` isn't in the RxJS library, so let's pretend it was always 2 steps.
+
+Anyway, we can recreate the logic above in RxJS, so lets do that!
 
 ```ts
-function *identityIterable<A>(source:Iterable<A>):Iterable<A>{
-  yield *source;
-}
+const nums$ = from([1,2,3,4,5])
+const allButFirst$ = num$.pipe(skip(1));
+allButFirst$.subscribe(console.log);
+// CONSOLE:
+// 2
+// 3
+// 4
+// 5
+
+const allButFirstAndLast$ = allButFirst$.pipe(take(3))
+allButFirstAndLast$.subscribe(console.log);
+// CONSOLE:
+// 2
+// 3
+// 4
 ```
 
-So, for each of the operators going forward, I'm going to describe it, but I'm also going to write the "generator" version of it, so you know I'm on the level.
+Let's run them both together with some logging, and we'll see something really important about `take`:
 
-Well, I'm certainly going to try.
+```ts
+import { from, tap, skip, take } from "rxjs"
+import { debug } from "../utils"
+
+from([1,2,3,4,5])
+  .pipe(
+    tap(debug('Source')),
+    skip(1), 
+    tap(debug('After Skip')),
+    take(3),
+    tap(debug('After Take'))
+  ).subscribe()
+
+// CONSOLE:
+// After Take Subscribe
+// After Skip Subscribe
+// Source Subscribe
+// Source Next 1
+// Source Next 2
+// After Skip Next 2
+// After Take Next 2
+// Source Next 3
+// After Skip Next 3
+// After Take Next 3
+// Source Next 4
+// After Skip Next 4
+// After Take Next 4
+// After Take Complete
+// Source Unsubscribe
+// After Skip Unsubscribe
+```
+
+You'll notice that the last three messages in the log are `After Take Complete`, `Source Unsubscribe`, `After Skip Unsubscribe`.  The `take` operator didn't just stop emitting values.  It completed, and in doing so, it unsubscribed from its source, which then triggered unsubscribes all the way back.
+
+This is the magic of `take` and its variants `takeWhile` and `takeUntil`.  They stop subscriptions, which can clean up all sorts of processes.
+
+When it comes to arrays, this isn't a huge deal.  It may save you from doing unnecessary operations on a big array if you already have what you need, so that's a plus, but it probably wouldn't kill your whole app.  But you may remember what I said about the differences between arrays and iterables: arrays are finite, iterables could be infinite.  So if I run the code above on an infinite iterable, then I know it'll stop and my code won't be stuck in an infinite loop.
+
+```ts
+function *countForever(n:number = 1){
+  while(true) yield n++;
+}
+
+from(countForever(1))
+  .pipe(
+    tap(debug('Source')),
+    skip(3), 
+    tap(debug('After Skip')),
+    take(2),
+    tap(debug('After Take'))
+  ).subscribe()
+
+// CONSOLE:
+// After Take Subscribe
+// After Skip Subscribe
+// Source Subscribe
+// Source Next 1
+// Source Next 2
+// Source Next 3
+// Source Next 4
+// After Skip Next 4
+// After Take Next 4
+// Source Next 5
+// After Skip Next 5
+// After Take Next 5
+// After Take Complete
+// Source Unsubscribe
+// After Skip Unsubscribe
+```
+
+Same output, and more importantly, `take` killed our iterable so it didn't go forever.  This will be important for cancelling all sorts of things, like event listeners, AJAX calls, socket connections, and more.  We'll get into more of this later, but `take` is a big part of how we clean up our processes.
+
+> NOTE: `takeLast` doesn't do this, for reasons we'll discuss further down the chapter, so don't count on it to do any cleanup for you.
+
+It's worth mentioning `skipWhile` and `takeWhile` here.  They work the same way, but instead of counting out *n* number of items, it applies a test and decides when to stop skipping or stop taking based on that.
+
+```ts
+from([1,2,3,2,1]).pipe(
+  skipWhile(x => x < 2),
+  takeWhile(x => x >= 2)
+).subscribe(debug('TW-SW'));
+
+// CONSOLE:
+// TW-SW Next 2
+// TW-SW Next 3
+// TW-SW Next 2
+// TW-SW Complete
+```
+
+We'll discuss `skipUntil` and `takeUntil` in a later chapter, and we'll talk about `skipLast` and `takeLast` further below in this chapter.  But closer to the end.  Because they're weird.
+
+4. `startWith` / `endWith`
+
+Okay, these are pretty straightforward: `startWith` emits a value before emitting any others, and `endWith` waits until the source completes, emits the value, then completes.
+
+```ts
+from([1,2,3])
+  .pipe(
+    tap(debug('Source')),
+    startWith(0), 
+    tap(debug('After StartWith')),
+    endWith(4),
+    tap(debug('After EndWith'))
+  ).subscribe()
+
+// After EndWith Subscribe
+// After StartWith Subscribe
+// After StartWith Next 0
+// After EndWith Next 0
+// Source Subscribe
+// Source Next 1
+// After StartWith Next 1
+// After EndWith Next 1
+// Source Next 2
+// After StartWith Next 2
+// After EndWith Next 2
+// Source Next 3
+// After StartWith Next 3
+// After EndWith Next 3
+// Source Complete
+// After StartWith Complete
+// After EndWith Next 4
+// After EndWith Complete
+```
+
+5. `distinctUntilChanged`
+
+There's a whole `distinct` family that we'll discuss below, but this one is the one I use most.  It allows you to run
+
+## And now for the etcetera
+
+Okay, from
 
 ## One goes in, one comes out
 
@@ -464,9 +747,9 @@ But here's where the strangeness sets in.  You see, in every operator we've talk
 
 ```ts
 interval(1000).pipe(
-  tap(debugger('From Source')),
+  tap(debug('From Source')),
   skipLast(2),
-  tap(debugger('After Skip')),
+  tap(debug('After Skip')),
 ).subscribe();
 
 // Console
@@ -938,6 +1221,6 @@ function safeMap$<A, B>(txfm:(item:A, index:number) => B, onError:(err:any, item
     });
   });
 }
-```
+``` -->
 
-[<<Prev](./03-pipe-dreams.md) | [Home](../README.md) | [Next >>](./05-rxjs-for-processes.md)
+[<< Prev](./03-pipe-dreams.md) | [Home](../README.md) | [Next >>](./05-rxjs-for-processes.md)

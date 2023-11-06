@@ -12,10 +12,14 @@
 * catchError
 * throwError
 
-
 * repeat
 * retry
 
 * expand
+
+## Let's make our own!
+
+* loop
+* loopScan
 
 [<<Prev](./04-array-like-operators.md) | [Home](../README.md) | [Next >>](./06-combining-observables.md)
