@@ -23,7 +23,7 @@
 
 
 * [CompleteNotification](https://rxjs.dev/api/index/interface/CompleteNotification) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#material-girls)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#material-girls)
 
 * [CompletionObserver](https://rxjs.dev/api/index/interface/CompletionObserver) - interface
 
@@ -35,13 +35,13 @@
 
 
 * [EmptyError](https://rxjs.dev/api/index/interface/EmptyError) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#searching-for-the-one)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#searching-for-the-one)
 
 * [ErrorNotification](https://rxjs.dev/api/index/interface/ErrorNotification) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#material-girls)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#material-girls)
 
 * [ErrorObserver](https://rxjs.dev/api/index/interface/ErrorObserver) - interface
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#`observer<t>`)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#`observer<t>`)
 
 * [GlobalConfig](https://rxjs.dev/api/index/interface/GlobalConfig) - interface
 
@@ -56,15 +56,15 @@
 
 
 * [MonoTypeOperatorFunction](https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#one-goes-in,-maybe-one-comes-out.)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#smooth-operator)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#multiple-identity)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#one-goes-in,-maybe-one-comes-out.)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#smooth-operator)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#multiple-identity)
 
 * [NextNotification](https://rxjs.dev/api/index/interface/NextNotification) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#material-girls)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#material-girls)
 
 * [NextObserver](https://rxjs.dev/api/index/interface/NextObserver) - interface
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#`observer<t>`)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#`observer<t>`)
 
 * [NotFoundError](https://rxjs.dev/api/index/interface/NotFoundError) - interface
 
@@ -73,33 +73,33 @@
 
 
 * [Observer](https://rxjs.dev/api/index/interface/Observer) - interface
-  * [A Tour Of The Library - Chapter 2: How to Make an Observable](/guide/how-to-make-an-observable#chapter-2:-how-to-make-an-observable)
-  * [A Tour Of The Library - Chapter 2: How to Make an Observable](/guide/how-to-make-an-observable#subjects)
-  * [A Tour Of The Library - Section 1: A Tour of the Library](/guide/#how-to-keep-your-brains-from-exploding)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#multiple-identity)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#tap-dancing)
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#`observer<t>`)
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#`observable<t>`)
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#observables-as-functions)
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#observables-as-streams)
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#observables-as-processes)
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#`subscription`)
+  * [Archived — A Tour Of The Library - Chapter 2: How to Make an Observable](/archived/guide/how-to-make-an-observable#chapter-2:-how-to-make-an-observable)
+  * [Archived — A Tour Of The Library - Chapter 2: How to Make an Observable](/archived/guide/how-to-make-an-observable#subjects)
+  * [Archived — A Tour Of The Library - Section 1: A Tour of the Library](/archived/guide/#how-to-keep-your-brains-from-exploding)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#multiple-identity)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#tap-dancing)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#`observer<t>`)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#`observable<t>`)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#observables-as-functions)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#observables-as-streams)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#observables-as-processes)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#`subscription`)
 
 * [Operator](https://rxjs.dev/api/index/interface/Operator) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#chapter-4:-array-like-operators)
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#one-goes-in,-one-comes-out)
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#one-goes-in,-maybe-one-comes-out.)
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#making-operators-for-fun-and-profit)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#chapter-3:-pipe-dreams)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#smooth-operator)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#multiple-identity)
-  * [A Tour Of The Library - Chapter 8: Rx-Specific Operators](/guide/rx-specific-operators#chapter-8:-rx-specific-operators)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#chapter-4:-array-like-operators)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#one-goes-in,-one-comes-out)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#one-goes-in,-maybe-one-comes-out.)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#making-operators-for-fun-and-profit)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#chapter-3:-pipe-dreams)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#smooth-operator)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#multiple-identity)
+  * [Archived — A Tour Of The Library - Chapter 8: Rx-Specific Operators](/archived/guide/rx-specific-operators#chapter-8:-rx-specific-operators)
 
 * [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#one-goes-in,-one-comes-out)
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#one-goes-in,-maybe-one-comes-out.)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#smooth-operator)
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#multiple-identity)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#one-goes-in,-one-comes-out)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#one-goes-in,-maybe-one-comes-out.)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#smooth-operator)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#multiple-identity)
 
 * [ReadableStreamLike](https://rxjs.dev/api/index/interface/ReadableStreamLike) - interface
 
@@ -120,7 +120,7 @@
 
 
 * [SequenceError](https://rxjs.dev/api/index/interface/SequenceError) - interface
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#searching-for-the-one)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#searching-for-the-one)
 
 * [ShareConfig](https://rxjs.dev/api/index/interface/ShareConfig) - interface
 
@@ -138,7 +138,7 @@
 
 
 * [TapObserver](https://rxjs.dev/api/index/interface/TapObserver) - interface
-  * [A Tour Of The Library - Chapter 3: Pipe Dreams](/guide/pipe-dreams#tap-dancing)
+  * [Archived — A Tour Of The Library - Chapter 3: Pipe Dreams](/archived/guide/pipe-dreams#tap-dancing)
 
 * [ThrottleConfig](https://rxjs.dev/api/index/interface/ThrottleConfig) - interface
 
@@ -165,7 +165,7 @@
 
 
 * [Unsubscribable](https://rxjs.dev/api/index/interface/Unsubscribable) - interface
-  * [A Tour Of The Library - Chapter 1: The Observable Universe](/guide/the-observable-universe#`subscription`)
+  * [Archived — A Tour Of The Library - Chapter 1: The Observable Universe](/archived/guide/the-observable-universe#`subscription`)
 
 * [UnsubscriptionError](https://rxjs.dev/api/index/interface/UnsubscriptionError) - interface
 

@@ -7,10 +7,12 @@ const componentsData = fs.readFile(path.join(__dirname, './components.json'), 'u
 
 // folder on disk (relative to this script) -> { title, url } where url is the
 // VitePress route prefix for pages in that folder.
+// Archived first-draft content. Cross-references point here until the rewrite
+// replaces them with new sections.
 const sections = {
-  '../docs/guide': { title: 'A Tour Of The Library', url: '/guide' },
-  '../docs/articles': { title: 'RxJS Articles', url: '/articles' },
-  '../docs/cookbook': { title: 'RxJS Cookbook', url: '/cookbook' },
+  '../docs/archived/guide': { title: 'Archived — A Tour Of The Library', url: '/archived/guide' },
+  '../docs/archived/articles': { title: 'Archived — RxJS Articles', url: '/archived/articles' },
+  '../docs/archived/cookbook': { title: 'Archived — RxJS Cookbook', url: '/archived/cookbook' },
 };
 
 const OUT = path.join(__dirname, '../docs/reference');

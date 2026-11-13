@@ -176,7 +176,7 @@ obs.subscribe({
 // Complete From defer(() => [11, 12, 13])
 ```
 
-Ever since I really started playing with `defer`, it's shown itself to be a real powertool.  I can use it to delay the creation of Observables, I can use it to query some state when it's run and not a moment before, I can use it to manage some piece of state locally, and there's a lot more. You can read more about that in the article [Rx Utils I Keep Making](/articles/rx-utils-i-keep-making).
+Ever since I really started playing with `defer`, it's shown itself to be a real powertool.  I can use it to delay the creation of Observables, I can use it to query some state when it's run and not a moment before, I can use it to manage some piece of state locally, and there's a lot more. You can read more about that in the article [Rx Utils I Keep Making](/archived/articles/rx-utils-i-keep-making).
 
 Also, this idea of coercing an `ObservableInput<T>` into a proper `Observable<T>` is something you'll see more of further down the road, especially when we get into some of the upcoming operators.  Check the index of this book, and you'll see how often it's used.
 
@@ -330,7 +330,7 @@ console.log('Current Value: ', behaviorSubject.value);
 // Current Value: 4
 ```
 
-This "Behavior" behaviour makes this a great strategy for holding onto the "state" of an application.  If you've spent enough time in the world of JavaScript, especially front end, you've seen a lot of state management libraries, like Redux or MobX.  RxJS cooperates great with those kinds of libraries, but you can also use this to make a little state management mechanism of your own, as we'll discuss further in [Reducers for Fun and Profit](/articles/reducers-for-fun-and-profit).
+This "Behavior" behaviour makes this a great strategy for holding onto the "state" of an application.  If you've spent enough time in the world of JavaScript, especially front end, you've seen a lot of state management libraries, like Redux or MobX.  RxJS cooperates great with those kinds of libraries, but you can also use this to make a little state management mechanism of your own, as we'll discuss further in [Reducers for Fun and Profit](/archived/articles/reducers-for-fun-and-profit).
 
 `BehaviorSubject` is great, but what if you need to play back more signals?  Like what if you need the last 10 signals when you subscribe?  Or the last 10 seconds worth of signals?  This is where `ReplaySubject` comes in.  You can define a limit of how many signals, a limit of time window, or both.
 
@@ -365,7 +365,7 @@ There is also the `AsyncSubject`, which waits until it completes to send the las
 
 If there's one area that RxJS shines with, it's timing.  If I have an issue with starting, stopping, grouping, or otherwise managing timing, I'll often write my code with RxJS as a first draft.  There's a whole chapter on this subject coming up, but here are the creation operators that are connected to creating Observables that emit signals on a schedule.
 
-The two most common timing utilities in JavaScript are `setInterval`, and `setTimeout`.  There's a lot more to be said about these utilities, how they work in regular JavaScript, and how RxJS wraps them, and we'll discuss that in our [chapter on timing](/guide/timing).For now, we have three functions to create Observables with these:
+The two most common timing utilities in JavaScript are `setInterval`, and `setTimeout`.  There's a lot more to be said about these utilities, how they work in regular JavaScript, and how RxJS wraps them, and we'll discuss that in our [chapter on timing](/archived/guide/timing).For now, we have three functions to create Observables with these:
 
 * `interval(period:number):Observable<number>`
 * `timer(dueTime:number|Date = 0):Observable<0>`

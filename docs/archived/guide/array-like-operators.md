@@ -202,7 +202,7 @@ const xsAndOs$:Observable<TicTacToeMark> = string$.pipe(
 
 3. `scan` / `reduce`
 
-If you've been in the world of JavaScript for long enough, or if you've dipped into the world of functional programming, you might know the glory of reducers.  I go at length on their goodness [here](/articles/reducers-for-fun-and-profit), but the gist is this: we can take an entire sequence and boil it down (or reduce it down) to one value, something that tells us about the whole collection.  All we need is a seed value, and a function that takes the current running value, and updates it based on a current value.
+If you've been in the world of JavaScript for long enough, or if you've dipped into the world of functional programming, you might know the glory of reducers.  I go at length on their goodness [here](/archived/articles/reducers-for-fun-and-profit), but the gist is this: we can take an entire sequence and boil it down (or reduce it down) to one value, something that tells us about the whole collection.  All we need is a seed value, and a function that takes the current running value, and updates it based on a current value.
 
 ```ts
 const nums = [1,2,3,4]
@@ -608,7 +608,7 @@ const sale$ = from([
 // { Jeff: 200, Janet: 200, Mike: 300 }
 ```
 
-> Learn more about reducers in [Reducers for Fun and Profit](/articles/reducers-for-fun-and-profit)
+> Learn more about reducers in [Reducers for Fun and Profit](/archived/articles/reducers-for-fun-and-profit)
 
 ### Material Girls
 
@@ -849,7 +849,7 @@ Can you see the delay?  `skipLast(2)` emits the first item *after* it gets the t
 
 The last variation is `skipUntil`.  Now this one doesn't have an iterable version we can write out, and for good reason: this depends on another Observable, so its pretty hard to do this synchronously.  In fact, everywhere you see "until" in RxJS, think "until another Observable emits".
 
-We'll cover that and other ways that Observables interact with each other in [Chapter 6: Combining Observables](/guide/combining-observables)
+We'll cover that and other ways that Observables interact with each other in [Chapter 6: Combining Observables](/archived/guide/combining-observables)
 
 ## At the end of the day
 
@@ -948,7 +948,7 @@ function toArray<T>(source:Observable<T>):Observable<T[]>{
 }
 ```
 
-`toArray` plays a really important role when you use RxJS to do lazy transformations on arrays, but you can read more about that here: [Lazy Array Transformation](/articles/lazy-array-transformation).
+`toArray` plays a really important role when you use RxJS to do lazy transformations on arrays, but you can read more about that here: [Lazy Array Transformation](/archived/articles/lazy-array-transformation).
 
 And to cap off this little section, here's `reduce`!  `reduce` works very similar to its counterpart from [`Array.prototype.reduce`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce).  You have a sequence of type A, you pass in a reducer function (with the type signature `(acc:B, item:A, index:number) => B`), and a seed of type B, and bam!  You have a B at the end!
 

@@ -7,7 +7,7 @@
 Operators that work with time: debouncing, throttling, delaying, sampling, and scheduling.
 
 * [audit](https://rxjs.dev/api/index/function/audit) - pipeable
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#backpressure)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#backpressure)
 
 * [auditTime](https://rxjs.dev/api/index/function/auditTime) - pipeable
 
@@ -16,44 +16,44 @@ Operators that work with time: debouncing, throttling, delaying, sampling, and s
 
 
 * [debounce](https://rxjs.dev/api/index/function/debounce) - pipeable
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#backpressure)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#backpressure)
 
 * [debounceTime](https://rxjs.dev/api/index/function/debounceTime) - pipeable
 
 
 * [delay](https://rxjs.dev/api/index/function/delay) - pipeable
-  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#skip-to-the-good-parts)
-  * [A Tour Of The Library - Chapter 2: How to Make an Observable](/guide/how-to-make-an-observable#turn-a-_-into-an-observable)
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#other-time-utilities)
-  * [A Tour Of The Library - What is RxJS?](/guide/what-is-rxjs#rxjs-in-a-nutshell)
+  * [Archived — A Tour Of The Library - Chapter 4: Array-Like Operators](/archived/guide/array-like-operators#skip-to-the-good-parts)
+  * [Archived — A Tour Of The Library - Chapter 2: How to Make an Observable](/archived/guide/how-to-make-an-observable#turn-a-_-into-an-observable)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#other-time-utilities)
+  * [Archived — A Tour Of The Library - What is RxJS?](/archived/guide/what-is-rxjs#rxjs-in-a-nutshell)
 
 * [delayWhen](https://rxjs.dev/api/index/function/delayWhen) - pipeable
 
 
 * [observeOn](https://rxjs.dev/api/index/function/observeOn) - pipeable
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#on-a-schedule)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#on-a-schedule)
 
 * [sample](https://rxjs.dev/api/index/function/sample) - pipeable
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#backpressure)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#backpressure)
 
 * [sampleTime](https://rxjs.dev/api/index/function/sampleTime) - pipeable
 
 
 * [subscribeOn](https://rxjs.dev/api/index/function/subscribeOn) - function
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#on-a-schedule)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#on-a-schedule)
 
 * [throttle](https://rxjs.dev/api/index/function/throttle) - pipeable
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#backpressure)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#backpressure)
 
 * [throttleTime](https://rxjs.dev/api/index/function/throttleTime) - pipeable
 
 
 * [timeInterval](https://rxjs.dev/api/index/function/timeInterval) - pipeable
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#other-time-utilities)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#other-time-utilities)
 
 * [timestamp](https://rxjs.dev/api/index/function/timestamp) - pipeable
-  * [A Tour Of The Library - Chapter 2: How to Make an Observable](/guide/how-to-make-an-observable#timing-creators)
-  * [A Tour Of The Library - Chapter 7: Timing](/guide/timing#other-time-utilities)
+  * [Archived — A Tour Of The Library - Chapter 2: How to Make an Observable](/archived/guide/how-to-make-an-observable#timing-creators)
+  * [Archived — A Tour Of The Library - Chapter 7: Timing](/archived/guide/timing#other-time-utilities)
 
 * [windowTime](https://rxjs.dev/api/index/function/windowTime) - pipeable
 
