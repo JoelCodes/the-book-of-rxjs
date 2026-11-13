@@ -652,7 +652,7 @@ We hold on to the set, and every time we have an item that hasn't been seen yet,
 
 This is a really common pattern I use with arrays, but again, I do different things with arrays than I do with streams because all the data is there.  Sometimes, I care more about change.
 
-Consider the `span` example above.  There are many cases where an input will not result in a state change, and we just repeat the old state.  But maybe we don't want to trigger some transformation if the state hasn't changed.  `distinctUntilChanged` will filter out values that are the same as the last emitted state (with an equality operator you can define).
+Consider the `scan` example above.  There are many cases where an input will not result in a state change, and we just repeat the old state.  But maybe we don't want to trigger some transformation if the state hasn't changed.  `distinctUntilChanged` will filter out values that are the same as the last emitted state (with an equality operator you can define).
 
 ```ts
 function distinctUntilChanged<T>():(source:Iterable<T>) => Iterable<T>;
@@ -1221,6 +1221,6 @@ function safeMap$<A, B>(txfm:(item:A, index:number) => B, onError:(err:any, item
     });
   });
 }
-``` -->
+```
 
 [<< Prev](./03-pipe-dreams.md) | [Home](../README.md) | [Next >>](./05-rxjs-for-processes.md)

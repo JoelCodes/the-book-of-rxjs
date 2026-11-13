@@ -516,4 +516,4 @@ setTimeout(() => {
 }, 3500);
 ```
 
-[<< Prev](./01-the-observable-universe.md) | [Home](../README.md) | [Next >>](./03-array-like-operators.md)
+[<< Prev](./01-the-observable-universe.md) | [Home](../README.md) | [Next >>](./03-pipe-dreams.md)

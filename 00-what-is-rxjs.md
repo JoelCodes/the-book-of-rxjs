@@ -242,7 +242,7 @@ function bind<A, B>(opt:Option<A>, txfm:(val:A) => Option<B>):Option<B>{
 }
 
 // And here's an extra `concat` utility for funsies.
-function first<A>(opts:Option<A>[]):Option<A>{
+function firstIter<A>(opts:Option<A>[]):Option<A>{
   for(const opt of opts){
     if(opt.type === "SOME") return opt;
   }
@@ -254,9 +254,81 @@ function first<A>(opts:Option<A>[]):Option<A>{
 
 Is their any real, tangible value of using this "Monad" lingo for any of this?
 
-Yes.  Yes there is. In fact, the fact that we have Promises at all in JavaScript is a testament to this.  I remember the days of callback hell, and I remember when Promises were just libraries people brought into their projects, similar to RxJS today.  They're in the language today because they made it easier to reason about how async operations could be constructed, and a big part of their appeal was the guarantees that the abstraction brought.
+Yes.  Yes there is. The fact that we have Promises at all in JavaScript is a testament to this.  I remember the days of callback hell, and I remember when Promises were just libraries people brought into their projects, similar to RxJS today.  This is also the same with all those "immutable" methods in JavaScript arrays.  Once upon a time, I had to bring `lodash` or `underscore` into every project just to be able to do `map`, `filter`, or `reduce` on arrays.  But these constructs give us two important benefits:
 
-This is also the same with all those "immutable" methods in JavaScript arrays.  Once upon a time, I had to bring `lodash` or `underscore` into every project to get access to them.  They made code easier to read and reason about, and before long, many of those methods became part of the language organically because so many developers started using them.
+1. **Code Readability.**  I'll be the first to admit that readability is a very subjective quality.  It can't really be measured in any meaningful way, especially in the small, so maybe the better way to say that is this: it provided a language.  Once you understood the language, it was really easy to make the leap about what certain code was doing.  For instance, if you had a bunch of sales data, and you wanted a total for all boat sales in March, you could write:
+
+```ts
+let total = 0;
+
+for(const sale in allSales){
+  // Sale dates are strings of YYYY-MM-DD
+  if(!sale.date.startsWith('2023-03')) continue;
+  for(const lineItem in sale.lineItems){
+    if(lineItem.category === 'Boats'){
+      total += sale.subtotal;
+      break;
+    }
+  }
+}
+
+console.log(total);
+```
+
+But you could also write the following:
+```ts
+const total = allSales
+  .filter(sale => sale.date.startsWith('2023-03'))
+  .filter(sale => sale.lineItems.some(lineItem => lineItem.category === 'Boats'))
+  .map(sale => sale.subtotal)
+  .reduce((a, b) => a + b);
+```
+
+In the first one, I have to read really closely and pay attention to the `break` and `continue` to see what's going on.  It's not until I look closely that I realize that the behaviour inside the inner loop will only ever run once per `sale` record, if that.
+
+In the second one, each line tells a story, but only if I'm fluent in "Array".
+
+```ts
+const total = allSales
+  // For all sales in Mar 2023
+  .filter(sale => sale.date.startsWith('2023-03'))
+  // That have a lineItem with the category 'Boats',
+  .filter(sale => sale.lineItems.some(lineItem => lineItem.category === 'Boats'))
+  // Get that sale's subtotal,
+  .map(sale => sale.subtotal)
+  // Then add them all together to get one big sum.
+  .reduce((a, b) => a + b);
+```
+
+2. **Code Equivalencies**.  This one is a little more abstract, but thanks to the monad laws, we have some knowledge about certain combinations of operations, and that gives us flexibility to change things around without losing guarantees.
+
+For instance, I ran `filter` twice in a row.  If I have two tester functions `a` and `b`, then I can rely on a certain mathematical truth here: calling `items.filter(a).filter(b)` is going to give me the same output as calling `items.filter((...args) => a(...args) && b(...args))`.  I can split them or combine them as I see fit.  I like the legibility of the split I have above, but if I want to improve the performance, I can just combine them, and I know that I'll get the same output.
+
+```ts
+const total = allSales
+  // For all sales in Mar 2023 that have a lineItem with the category 'Boats'
+  .filter(sale => 
+    sale.date.startsWith('2023-03') &&
+    sale.lineItems.some(lineItem => lineItem.category === 'Boats'))
+  // Get that sale's subtotal,
+  .map(sale => sale.subtotal)
+  // Then add them all together to get one big sum.
+  .reduce((a, b) => a + b);
+```
+
+I can also change that `reduce` in a subtle way.  Currently, I have no seed value, so the first value is used.  In other words: `items.reduce(reducer)` is roughly equivalent to `const [first, ...rest] = items;  return rest.reduce(reducer, first)`.   But there is a case where they aren't equivalent: when `items` is empty.  In JavaScript, we get an undefined, but in other languages, they might give us an error.  So in order for me to make this foolproof, I do need to either provide a seed value, create a default value, or handle the `undefined` in my code to represent "No sales found".
+
+```ts
+  // either add a seed
+  .reduce((a, b) => a + b, 0);
+
+  // add a default
+  .reduce((a, b) => a + b) ?? 0;
+
+  // Handle it.
+if(total === undefined) console.log('No Sales Data');
+else console.log(`$${total} In Total Boat Sales`);
+```
 
 ## Why Is RxJS So... Complicated?
 
