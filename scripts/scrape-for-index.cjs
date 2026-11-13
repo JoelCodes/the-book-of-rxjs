@@ -71,7 +71,20 @@ ${references.map(([section, title, link]) => `  * [${section} - ${title}](${link
   }));
 });
 
-const NAV = `[All](./all) | [Classes](./classes) | [Functions](./functions) | [Consts](./consts) | [Types](./types) | [Deprecated](./deprecated)`;
+// Operator categories, in teaching order, with their page slugs.
+const CATEGORIES = [
+  ['Observable Creation', 'creation'],
+  ['Array-Like', 'array-like'],
+  ['Process and Flow', 'process-and-flow'],
+  ['Combiners', 'combiners'],
+  ['Timing', 'timing'],
+  ['Because RxJS', 'because-rxjs'],
+];
+
+const CAT_NAV = CATEGORIES.map(([title, slug]) => `[${title}](./${slug})`).join(' | ');
+const NAV = `**By category:** ${CAT_NAV}
+
+**By type:** [All](./all) | [Classes](./classes) | [Functions](./functions) | [Consts](./consts) | [Types](./types) | [Deprecated](./deprecated)`;
 
 const clearIndexFiles = fs.rm(OUT, { recursive: true, force: true }).then(() => fs.mkdir(OUT, { recursive: true }));
 clearIndexFiles
@@ -150,6 +163,32 @@ ${NAV}
 
 ${componentsData.filter(c => c.deprecated).map(c => entries[c.name]).join('\n\n')}
 `);
+
+    // One page per operator category. Non-deprecated members only; alphabetical.
+    const byCategory = groupBy(
+      componentsData.filter(c => c.category && !c.deprecated),
+      c => c.category,
+    );
+    const CAT_INTRO = {
+      'Observable Creation': 'Functions that create an Observable from some source — values, events, timers, promises, callbacks.',
+      'Array-Like': 'Operators with a direct Array or Iterable analogue: transform, filter, and reduce the values of a single stream.',
+      'Process and Flow': 'Operators that shape a stream’s lifecycle — error handling, retries, repetition, and completion.',
+      'Combiners': 'Operators and functions that combine or flatten multiple Observables into one.',
+      'Timing': 'Operators that work with time: debouncing, throttling, delaying, sampling, and scheduling.',
+      'Because RxJS': 'Utilities that exist because of what RxJS is — multicasting, materialization, side effects, and Promise interop.',
+    };
+    for (const [title, slug] of CATEGORIES) {
+      const members = (byCategory[title] || []).sort((a, b) => a.name.localeCompare(b.name));
+      await fs.writeFile(path.join(OUT, `${slug}.md`), `# ${title}
+
+${NAV}
+
+${CAT_INTRO[title] || ''}
+
+${members.map(c => entries[c.name]).join('\n\n')}
+`);
+    }
+
     console.log('wrote reference pages to', path.relative(process.cwd(), OUT));
   });
 

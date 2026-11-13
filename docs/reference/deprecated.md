@@ -1,6 +1,8 @@
 # Deprecated
 
-[All](./all) | [Classes](./classes) | [Functions](./functions) | [Consts](./consts) | [Types](./types) | [Deprecated](./deprecated)
+**By category:** [Observable Creation](./creation) | [Array-Like](./array-like) | [Process and Flow](./process-and-flow) | [Combiners](./combiners) | [Timing](./timing) | [Because RxJS](./because-rxjs)
+
+**By type:** [All](./all) | [Classes](./classes) | [Functions](./functions) | [Consts](./consts) | [Types](./types) | [Deprecated](./deprecated)
 
 * [animationFrame](https://rxjs.dev/api/index/const/animationFrame) - const
   * [A Tour Of The Library - Chapter 2: How to Make an Observable](/guide/how-to-make-an-observable#timing-creators)

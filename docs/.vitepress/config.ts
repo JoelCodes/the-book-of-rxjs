@@ -67,7 +67,18 @@ export default defineConfig({
       ],
       '/reference/': [
         {
-          text: 'Reference',
+          text: 'By Category',
+          items: [
+            { text: 'Observable Creation', link: '/reference/creation' },
+            { text: 'Array-Like', link: '/reference/array-like' },
+            { text: 'Process and Flow', link: '/reference/process-and-flow' },
+            { text: 'Combiners', link: '/reference/combiners' },
+            { text: 'Timing', link: '/reference/timing' },
+            { text: 'Because RxJS', link: '/reference/because-rxjs' },
+          ],
+        },
+        {
+          text: 'By Type',
           items: [
             { text: 'All Components', link: '/reference/all' },
             { text: 'Classes', link: '/reference/classes' },

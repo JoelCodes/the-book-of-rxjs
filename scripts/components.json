@@ -9,7 +9,8 @@
         "link": "https://rxjs.dev/api/index/function/animationFrames",
         "type": "pipeable",
         "name": "animationFrames",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/const/animationFrameScheduler",
@@ -57,13 +58,15 @@
         "link": "https://rxjs.dev/api/index/function/audit",
         "type": "pipeable",
         "name": "audit",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/auditTime",
         "type": "pipeable",
         "name": "auditTime",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/BasicGroupByOptions",
@@ -81,49 +84,57 @@
         "link": "https://rxjs.dev/api/index/function/bindCallback",
         "type": "creation",
         "name": "bindCallback",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/bindNodeCallback",
         "type": "creation",
         "name": "bindNodeCallback",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/buffer",
         "type": "pipeable",
         "name": "buffer",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/bufferCount",
         "type": "pipeable",
         "name": "bufferCount",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/bufferTime",
         "type": "pipeable",
         "name": "bufferTime",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/bufferToggle",
         "type": "pipeable",
         "name": "bufferToggle",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/bufferWhen",
         "type": "pipeable",
         "name": "bufferWhen",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/catchError",
         "type": "pipeable",
         "name": "catchError",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/const/combineAll",
@@ -135,19 +146,22 @@
         "link": "https://rxjs.dev/api/index/function/combineLatest",
         "type": "pipeable",
         "name": "combineLatest",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/combineLatestAll",
         "type": "pipeable",
         "name": "combineLatestAll",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/combineLatestWith",
         "type": "pipeable",
         "name": "combineLatestWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/CompleteNotification",
@@ -165,19 +179,22 @@
         "link": "https://rxjs.dev/api/index/function/concat",
         "type": "creation",
         "name": "concat",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/concatAll",
         "type": "pipeable",
         "name": "concatAll",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/concatMap",
         "type": "pipeable",
         "name": "concatMap",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/concatMapTo",
@@ -189,7 +206,8 @@
         "link": "https://rxjs.dev/api/index/function/concatWith",
         "type": "pipeable",
         "name": "concatWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/const/config",
@@ -201,13 +219,15 @@
         "link": "https://rxjs.dev/api/index/function/connect",
         "type": "pipeable",
         "name": "connect",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/connectable",
         "type": "function",
         "name": "connectable",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/Connectable",
@@ -237,73 +257,85 @@
         "link": "https://rxjs.dev/api/index/function/count",
         "type": "pipeable",
         "name": "count",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/debounce",
         "type": "pipeable",
         "name": "debounce",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/debounceTime",
         "type": "pipeable",
         "name": "debounceTime",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/defaultIfEmpty",
         "type": "pipeable",
         "name": "defaultIfEmpty",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/defer",
         "type": "creation",
         "name": "defer",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/delay",
         "type": "pipeable",
         "name": "delay",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/delayWhen",
         "type": "pipeable",
         "name": "delayWhen",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/dematerialize",
         "type": "pipeable",
         "name": "dematerialize",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/distinct",
         "type": "pipeable",
         "name": "distinct",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/distinctUntilChanged",
         "type": "pipeable",
         "name": "distinctUntilChanged",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/distinctUntilKeyChanged",
         "type": "pipeable",
         "name": "distinctUntilKeyChanged",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/elementAt",
         "type": "pipeable",
         "name": "elementAt",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/empty",
@@ -315,7 +347,8 @@
         "link": "https://rxjs.dev/api/index/const/EMPTY",
         "type": "const",
         "name": "EMPTY",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/EmptyError",
@@ -327,7 +360,8 @@
         "link": "https://rxjs.dev/api/index/function/endWith",
         "type": "pipeable",
         "name": "endWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/ErrorNotification",
@@ -345,7 +379,8 @@
         "link": "https://rxjs.dev/api/index/function/every",
         "type": "pipeable",
         "name": "every",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/const/exhaust",
@@ -357,19 +392,22 @@
         "link": "https://rxjs.dev/api/index/function/exhaustAll",
         "type": "pipeable",
         "name": "exhaustAll",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/exhaustMap",
         "type": "pipeable",
         "name": "exhaustMap",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/expand",
         "type": "pipeable",
         "name": "expand",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/type-alias/FactoryOrValue",
@@ -387,37 +425,43 @@
         "link": "https://rxjs.dev/api/index/function/filter",
         "type": "pipeable",
         "name": "filter",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/finalize",
         "type": "pipeable",
         "name": "finalize",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/function/find",
         "type": "pipeable",
         "name": "find",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/findIndex",
         "type": "pipeable",
         "name": "findIndex",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/first",
         "type": "pipeable",
         "name": "first",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/firstValueFrom",
         "type": "function",
         "name": "firstValueFrom",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/const/flatMap",
@@ -429,31 +473,36 @@
         "link": "https://rxjs.dev/api/index/function/forkJoin",
         "type": "creation",
         "name": "forkJoin",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/from",
         "type": "creation",
         "name": "from",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/fromEvent",
         "type": "creation",
         "name": "fromEvent",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/fromEventPattern",
         "type": "creation",
         "name": "fromEventPattern",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/generate",
         "type": "creation",
         "name": "generate",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/GlobalConfig",
@@ -465,7 +514,8 @@
         "link": "https://rxjs.dev/api/index/function/groupBy",
         "type": "pipeable",
         "name": "groupBy",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/GroupByOptionsWithElement",
@@ -489,19 +539,22 @@
         "link": "https://rxjs.dev/api/index/function/identity",
         "type": "function",
         "name": "identity",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/ignoreElements",
         "type": "pipeable",
         "name": "ignoreElements",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/iif",
         "type": "creation",
         "name": "iif",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/InteropObservable",
@@ -513,37 +566,43 @@
         "link": "https://rxjs.dev/api/index/function/interval",
         "type": "creation",
         "name": "interval",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/isEmpty",
         "type": "pipeable",
         "name": "isEmpty",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/isObservable",
         "type": "function",
         "name": "isObservable",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/last",
         "type": "pipeable",
         "name": "last",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/lastValueFrom",
         "type": "function",
         "name": "lastValueFrom",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/map",
         "type": "pipeable",
         "name": "map",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/mapTo",
@@ -555,31 +614,36 @@
         "link": "https://rxjs.dev/api/index/function/materialize",
         "type": "pipeable",
         "name": "materialize",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/max",
         "type": "pipeable",
         "name": "max",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/merge",
         "type": "creation",
         "name": "merge",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/mergeAll",
         "type": "pipeable",
         "name": "mergeAll",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/mergeMap",
         "type": "pipeable",
         "name": "mergeMap",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/mergeMapTo",
@@ -591,19 +655,22 @@
         "link": "https://rxjs.dev/api/index/function/mergeScan",
         "type": "pipeable",
         "name": "mergeScan",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/mergeWith",
         "type": "pipeable",
         "name": "mergeWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/min",
         "type": "pipeable",
         "name": "min",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction",
@@ -627,7 +694,8 @@
         "link": "https://rxjs.dev/api/index/const/NEVER",
         "type": "const",
         "name": "NEVER",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/NextNotification",
@@ -645,7 +713,8 @@
         "link": "https://rxjs.dev/api/index/function/noop",
         "type": "function",
         "name": "noop",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/NotFoundError",
@@ -735,7 +804,8 @@
         "link": "https://rxjs.dev/api/index/function/observeOn",
         "type": "pipeable",
         "name": "observeOn",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/Observer",
@@ -747,19 +817,22 @@
         "link": "https://rxjs.dev/api/index/function/of",
         "type": "creation",
         "name": "of",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/onErrorResumeNext",
         "type": "pipeable",
         "name": "onErrorResumeNext",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/function/onErrorResumeNextWith",
         "type": "pipeable",
         "name": "onErrorResumeNextWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/Operator",
@@ -783,7 +856,8 @@
         "link": "https://rxjs.dev/api/index/function/pairwise",
         "type": "pipeable",
         "name": "pairwise",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/type-alias/PartialObserver",
@@ -795,13 +869,15 @@
         "link": "https://rxjs.dev/api/index/function/partition",
         "type": "function",
         "name": "partition",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/pipe",
         "type": "pipeable",
         "name": "pipe",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/function/pluck",
@@ -849,19 +925,22 @@
         "link": "https://rxjs.dev/api/index/function/race",
         "type": "creation",
         "name": "race",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/raceWith",
         "type": "pipeable",
         "name": "raceWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/range",
         "type": "creation",
         "name": "range",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/ReadableStreamLike",
@@ -873,7 +952,8 @@
         "link": "https://rxjs.dev/api/index/function/reduce",
         "type": "pipeable",
         "name": "reduce",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/refCount",
@@ -885,7 +965,8 @@
         "link": "https://rxjs.dev/api/index/function/repeat",
         "type": "pipeable",
         "name": "repeat",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/RepeatConfig",
@@ -909,7 +990,8 @@
         "link": "https://rxjs.dev/api/index/function/retry",
         "type": "pipeable",
         "name": "retry",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/RetryConfig",
@@ -927,25 +1009,29 @@
         "link": "https://rxjs.dev/api/index/function/sample",
         "type": "pipeable",
         "name": "sample",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/sampleTime",
         "type": "pipeable",
         "name": "sampleTime",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/scan",
         "type": "pipeable",
         "name": "scan",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/scheduled",
         "type": "creation",
         "name": "scheduled",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/class/Scheduler",
@@ -969,7 +1055,8 @@
         "link": "https://rxjs.dev/api/index/function/sequenceEqual",
         "type": "pipeable",
         "name": "sequenceEqual",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/SequenceError",
@@ -981,7 +1068,8 @@
         "link": "https://rxjs.dev/api/index/function/share",
         "type": "pipeable",
         "name": "share",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/ShareConfig",
@@ -993,7 +1081,8 @@
         "link": "https://rxjs.dev/api/index/function/shareReplay",
         "type": "pipeable",
         "name": "shareReplay",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/ShareReplayConfig",
@@ -1005,37 +1094,43 @@
         "link": "https://rxjs.dev/api/index/function/single",
         "type": "pipeable",
         "name": "single",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/skip",
         "type": "pipeable",
         "name": "skip",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/skipLast",
         "type": "pipeable",
         "name": "skipLast",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/skipUntil",
         "type": "pipeable",
         "name": "skipUntil",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/skipWhile",
         "type": "pipeable",
         "name": "skipWhile",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/startWith",
         "type": "pipeable",
         "name": "startWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/class/Subject",
@@ -1065,7 +1160,8 @@
         "link": "https://rxjs.dev/api/index/function/subscribeOn",
         "type": "function",
         "name": "subscribeOn",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/class/Subscriber",
@@ -1089,13 +1185,15 @@
         "link": "https://rxjs.dev/api/index/function/switchAll",
         "type": "pipeable",
         "name": "switchAll",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/switchMap",
         "type": "pipeable",
         "name": "switchMap",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/switchMapTo",
@@ -1107,7 +1205,8 @@
         "link": "https://rxjs.dev/api/index/function/switchScan",
         "type": "pipeable",
         "name": "switchScan",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/type-alias/Tail",
@@ -1119,31 +1218,36 @@
         "link": "https://rxjs.dev/api/index/function/take",
         "type": "pipeable",
         "name": "take",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/takeLast",
         "type": "pipeable",
         "name": "takeLast",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/takeUntil",
         "type": "pipeable",
         "name": "takeUntil",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/takeWhile",
         "type": "pipeable",
         "name": "takeWhile",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/tap",
         "type": "pipeable",
         "name": "tap",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Because RxJS"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/TapObserver",
@@ -1161,7 +1265,8 @@
         "link": "https://rxjs.dev/api/index/function/throttle",
         "type": "pipeable",
         "name": "throttle",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/ThrottleConfig",
@@ -1173,25 +1278,29 @@
         "link": "https://rxjs.dev/api/index/function/throttleTime",
         "type": "pipeable",
         "name": "throttleTime",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/throwError",
         "type": "creation",
         "name": "throwError",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/throwIfEmpty",
         "type": "pipeable",
         "name": "throwIfEmpty",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/function/timeInterval",
         "type": "pipeable",
         "name": "timeInterval",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/TimeInterval",
@@ -1203,7 +1312,8 @@
         "link": "https://rxjs.dev/api/index/function/timeout",
         "type": "pipeable",
         "name": "timeout",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Process and Flow"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/TimeoutConfig",
@@ -1233,13 +1343,15 @@
         "link": "https://rxjs.dev/api/index/function/timer",
         "type": "creation",
         "name": "timer",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/function/timestamp",
         "type": "pipeable",
         "name": "timestamp",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/interface/Timestamp",
@@ -1257,7 +1369,8 @@
         "link": "https://rxjs.dev/api/index/function/toArray",
         "type": "pipeable",
         "name": "toArray",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/type-alias/TruthyTypesOf",
@@ -1287,7 +1400,8 @@
         "link": "https://rxjs.dev/api/index/function/using",
         "type": "creation",
         "name": "using",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/index/type-alias/ValueFromArray",
@@ -1317,61 +1431,71 @@
         "link": "https://rxjs.dev/api/index/function/window",
         "type": "pipeable",
         "name": "window",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/windowCount",
         "type": "pipeable",
         "name": "windowCount",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Array-Like"
     },
     {
         "link": "https://rxjs.dev/api/index/function/windowTime",
         "type": "pipeable",
         "name": "windowTime",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Timing"
     },
     {
         "link": "https://rxjs.dev/api/index/function/windowToggle",
         "type": "pipeable",
         "name": "windowToggle",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/windowWhen",
         "type": "pipeable",
         "name": "windowWhen",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/withLatestFrom",
         "type": "pipeable",
         "name": "withLatestFrom",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/zip",
         "type": "creation",
         "name": "zip",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/zipAll",
         "type": "pipeable",
         "name": "zipAll",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/index/function/zipWith",
         "type": "pipeable",
         "name": "zipWith",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Combiners"
     },
     {
         "link": "https://rxjs.dev/api/ajax/ajax",
         "type": "const",
         "name": "ajax",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/ajax/AjaxConfig",
@@ -1413,13 +1537,15 @@
         "link": "https://rxjs.dev/api/fetch/fromFetch",
         "type": "creation",
         "name": "fromFetch",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/webSocket/webSocket",
         "type": "function",
         "name": "webSocket",
-        "deprecated": false
+        "deprecated": false,
+        "category": "Observable Creation"
     },
     {
         "link": "https://rxjs.dev/api/webSocket/WebSocketSubject",
