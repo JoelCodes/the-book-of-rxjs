@@ -44,9 +44,11 @@ const guideSidebar = [
         collapsed: false,
         items: [
           { text: 'Overview', link: '/guide/process-management/' },
-          { text: 'Flow', link: '/guide/process-management/flow' },
+          { text: 'Hot, Cold, and Side Effects', link: '/guide/process-management/hot-and-cold' },
+          { text: 'Robustness Operators', link: '/guide/process-management/robustness' },
+          { text: 'Combiners, Revisited', link: '/guide/process-management/combiners' },
           { text: 'Timing', link: '/guide/process-management/timing' },
-          { text: 'Rx-Specific Operators', link: '/guide/process-management/rx-specific' },
+          { text: 'Bonus: loop and loopScan', link: '/guide/process-management/loop' },
         ],
       },
       { text: 'Testing & Debugging RxJS', link: '/guide/testing-debugging/' },
