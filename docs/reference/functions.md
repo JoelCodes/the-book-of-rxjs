@@ -176,6 +176,7 @@
   * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#searching-for-the-one)
 
 * [first](https://rxjs.dev/api/index/function/first) - pipeable
+  * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#chapter-4:-array-like-operators)
   * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#start-at-the-top)
   * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#one-goes-in,-one-comes-out)
   * [A Tour Of The Library - Chapter 4: Array-Like Operators](/guide/array-like-operators#with-distinction)

@@ -72,6 +72,51 @@ A **marble diagram** shows the same idea over time — each marble is a value, t
   explanation="of() emits each argument synchronously and then completes — that's the vertical bar at the end of a marble diagram."
 />
 
+<Exercise title="Doubling the odds">
+
+Starting from `of(1, 2, 3, 4, 5)`, build a pipe that keeps only the **odd** numbers and doubles each one. Expected emissions: `2`, `6`, `10`.
+
+<RunRx>
+
+```ts
+subscribe(
+  of(1, 2, 3, 4, 5).pipe(
+    // @editable
+    // your operators here
+    // @end
+  )
+);
+```
+
+</RunRx>
+
+<template #hint>
+
+You need `filter` to drop the even numbers, then `map` to double what's left. The order matters — filter first.
+
+</template>
+
+<template #solution>
+
+<RunRx>
+
+```ts
+subscribe(
+  of(1, 2, 3, 4, 5).pipe(
+    filter(n => n % 2 === 1),
+    map(n => n * 2),
+  )
+);
+```
+
+</RunRx>
+
+`filter` passes through only values where the predicate is `true`; `map` transforms each survivor. Run it and confirm the log shows `2`, `6`, `10`, then `complete`.
+
+</template>
+
+</Exercise>
+
 ## Adorable Iterables
 
 Okay, I said arrays earlier, but this isn't really about arrays: it's about **iterables**.  If you haven't seen iterables before, they're a type in JavaScript that does a lot of what you think about arrays doing.  In fact, every array is an iterable, though not every iterable is an array.  All iterables, including arrays, can do the following:
