@@ -51,7 +51,16 @@ const guideSidebar = [
           { text: 'Bonus: loop and loopScan', link: '/guide/process-management/loop' },
         ],
       },
-      { text: 'Testing & Debugging RxJS', link: '/guide/testing-debugging/' },
+      {
+        text: 'Testing & Debugging RxJS',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/guide/testing-debugging/' },
+          { text: 'Testing', link: '/guide/testing-debugging/testing' },
+          { text: 'Debugging', link: '/guide/testing-debugging/debugging' },
+          { text: 'Debugging Examples', link: '/guide/testing-debugging/debugging-examples' },
+        ],
+      },
       { text: 'The RxJS Graveyard', link: '/guide/graveyard' },
       { text: 'Types', link: '/guide/types' },
     ],
