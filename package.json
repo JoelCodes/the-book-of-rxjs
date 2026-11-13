@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Welcome to the Book of RxJS!  This book is meant to serve as a textbook, reference guide, and collection of examples and musings on the art of RxJS, the JavaScript implementation of the [ReactiveX](https://reactivex.io/) library!  RxJS takes many concepts you might already be familiar with, like Arrays and Promises, and combines them to make all of your async operations and data manipulations work together seamlessly, efficiently, and all with a declarative interface!",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "node scripts/scrape-for-index.cjs && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "index": "node scripts/scrape-for-index.cjs"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,11 @@
     "rxjs": "^7.8.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
   }
 }
