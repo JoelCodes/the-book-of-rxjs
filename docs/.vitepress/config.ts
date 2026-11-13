@@ -1,5 +1,61 @@
 import { defineConfig } from 'vitepress'
 
+// Shared across /intro/ and /guide/ so the book reads continuously.
+const guideSidebar = [
+  {
+    text: 'Getting Started',
+    items: [
+      { text: 'About This Book', link: '/intro/about-this-book' },
+      { text: 'What is RxJS, and Why Do I Care?', link: '/intro/what-is-rxjs' },
+    ],
+  },
+  {
+    text: 'A Tour of the Library',
+    items: [
+      { text: 'Overview', link: '/guide/' },
+      {
+        text: 'The Observable Universe',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/guide/observable-universe/' },
+          { text: 'The Observable Constructor', link: '/guide/observable-universe/observable-constructor' },
+          { text: 'Creating from Other Values', link: '/guide/observable-universe/creating-observables' },
+          { text: 'Subjects', link: '/guide/observable-universe/subjects' },
+          { text: 'Wrapping Web APIs', link: '/guide/observable-universe/web-api-wrappers' },
+          { text: 'Bonus: Writing deferAbort', link: '/guide/observable-universe/defer-abort' },
+        ],
+      },
+      { text: 'Pipeable Operators', link: '/guide/pipeable-operators' },
+      {
+        text: 'Array & Iterable-like Operators',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/guide/array-like/' },
+          { text: 'One In, One Out', link: '/guide/array-like/one-in-one-out' },
+          { text: 'Filtering', link: '/guide/array-like/filtering' },
+          { text: 'Short-Circuiting', link: '/guide/array-like/short-circuiting' },
+          { text: 'Firing on Completion', link: '/guide/array-like/on-completion' },
+          { text: 'Combiners and flatMaps', link: '/guide/array-like/combiners-and-flatmaps' },
+          { text: 'Bonus: Writing safeMap', link: '/guide/array-like/safe-map' },
+        ],
+      },
+      {
+        text: 'Process Management',
+        collapsed: false,
+        items: [
+          { text: 'Overview', link: '/guide/process-management/' },
+          { text: 'Flow', link: '/guide/process-management/flow' },
+          { text: 'Timing', link: '/guide/process-management/timing' },
+          { text: 'Rx-Specific Operators', link: '/guide/process-management/rx-specific' },
+        ],
+      },
+      { text: 'Testing & Debugging RxJS', link: '/guide/testing-debugging/' },
+      { text: 'The RxJS Graveyard', link: '/guide/graveyard' },
+      { text: 'Types', link: '/guide/types' },
+    ],
+  },
+]
+
 // Base path for GitHub Pages project site: https://<user>.github.io/the-book-of-rxjs/
 // If you set up a custom domain, change this to '/'.
 export default defineConfig({
@@ -16,6 +72,8 @@ export default defineConfig({
     search: { provider: 'local' },
 
     nav: [
+      { text: 'Guide', link: '/guide/' },
+      { text: 'Articles', link: '/articles/' },
       { text: 'Reference', link: '/reference/all' },
       {
         text: 'Archive',
@@ -28,6 +86,22 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/intro/': guideSidebar,
+      '/guide/': guideSidebar,
+      '/articles/': [
+        {
+          text: 'Articles',
+          items: [
+            { text: 'Overview', link: '/articles/' },
+            { text: 'Reactive Programming', link: '/articles/reactive-programming' },
+            { text: 'Monads', link: '/articles/monads' },
+            { text: 'Reducer-Based Apps', link: '/articles/reducer-apps' },
+            { text: 'RxJS and React', link: '/articles/rx-and-react' },
+            { text: 'RxJS and Angular', link: '/articles/rx-and-angular' },
+            { text: 'RxJS and Vue', link: '/articles/rx-and-vue' },
+          ],
+        },
+      ],
       '/archived/guide/': [
         {
           text: 'Getting Started',
