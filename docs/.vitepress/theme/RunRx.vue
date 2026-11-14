@@ -4,6 +4,7 @@ import * as rx from 'rxjs'
 import { EditorState, StateField, type Range } from '@codemirror/state'
 import { EditorView, keymap, Decoration, type DecorationSet } from '@codemirror/view'
 import { basicSetup } from 'codemirror'
+import { transform } from 'sucrase'
 import { indentWithTab } from '@codemirror/commands'
 import { javascript } from '@codemirror/lang-javascript'
 import { oneDark } from '@codemirror/theme-one-dark'
@@ -140,10 +141,20 @@ function run() {
   }
   const log = (...args: unknown[]) => push('log', args.map(fmt).join(' '))
 
+  // Strip TypeScript types so typed examples run as plain JS.
+  let js: string
+  try {
+    js = transform(currentCode(), { transforms: ['typescript'], disableESTransforms: true }).code
+  } catch (e: any) {
+    push('error', 'TypeScript: ' + (e?.message ?? String(e)))
+    running.value = false
+    return
+  }
+
   const names = Object.keys(rx)
   try {
     // eslint-disable-next-line no-new-func
-    const fn = new Function(...names, 'subscribe', 'log', currentCode())
+    const fn = new Function(...names, 'subscribe', 'log', js)
     fn(...names.map(n => (rx as any)[n]), subscribe, log)
   } catch (e: any) {
     push('error', e?.message ?? String(e))
