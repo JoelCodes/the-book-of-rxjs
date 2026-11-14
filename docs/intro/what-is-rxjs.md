@@ -4,4 +4,8 @@
 This chapter is being rewritten. The original draft is archived here: [What is RxJS, and Why Do I Care?](/archived/guide/what-is-rxjs).
 :::
 
-The pitch: what RxJS is, the problems it solves, and why reactive streams are worth rewiring your brain for.
+All right, let's get to business.  What is RxJS?
+
+> RxJS is a library for orchestrating different sources of data and events in a declarative way.
+
+

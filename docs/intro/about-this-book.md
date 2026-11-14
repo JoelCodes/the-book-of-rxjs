@@ -9,7 +9,6 @@ In time, this book will have explanations, diagrams, code examples, exercises, v
 I'm so glad you asked!
 
 * For starters, if you find any mistakes or want more explanation, please log an issue.
-* I've set up discussions, so if you have any questions or suggestions, that's a good place to let me know.  Keep it respectful in the comments, though.
 * If you have a really good tool for graphically representing RxJS streams, embedding helpful content, running quizzes, or the like, I'm more than open to a fork and a pull request!
 * I'm also open to other contributors writing content, so feel free to fork and PR!  If I accept your work, I'll make sure you're credited for it.
 * If you like this, share, star, and fork!
@@ -18,7 +17,7 @@ And finally, if you want to say thank you and support the ongoing elaboration of
 
 ## How to Use This Book
 
-This book is unusual in its... bookiness.  You might be looking to understand RxJS, write RxJS code, or design applications with the patterns defined in RxJS.  You might be sold on RxJS, you might be skeptical.  So there are many parts designed for different people at different stages in their journey with the library.
+This book is unusual in its... bookiness.  You might be looking to understand RxJS, write RxJS code, or design applications with the patterns defined in RxJS.  You might be sold on RxJS, you might be skeptical.  You may be really familiar with functional programming patterns, or you may come from a more imperative / object-oriented / just-get-the-thing-done background.
 
 In my experience, there are 5 stages of RxJS:
 
@@ -27,6 +26,8 @@ In my experience, there are 5 stages of RxJS:
 1. I can read RxJS code and see how it accomplishes its goals
 1. I can use RxJS to solve problems
 1. I can reliably troubleshoot RxJS for correctness and performance
+
+And wherever you are, I want you to be able to get *something* out of this book.  But here's the funny thing about knowledge: there's a lot of ways to know a thing.  Sometimes, it's good enough to know that a thing exists and that you can find out more about it later. Sometimes, it's good enough to know what the right tool for the job is, even if you have no idea how to use it.
 
 With that in mind, I recommend a bit of caution.  If you're reading something, and you realize that you haven't understood anything for the last 2 minutes, stop.  Maybe that part isn't for you right now.  Take a look at it, register "I know *that* you can do this particular thing with RxJS, I just don't know *how* you can do this particular thing with RxJS."  And that might be the thing you need to know right now.
 
@@ -37,3 +38,5 @@ So, if you're just starting, the [Tour of the Library](/guide/) will be an excel
 After that, there are a series of [articles](/articles/), little essays on what I've learned along the way.  That will also include guides for integrating RxJS with other libraries, like React, Angular, and Vue.
 
 Finally, there is the [Reference](/reference/all).  If all goes well, the Reference will be your most potent resource for RxJS.  You'll be able to look for any member of the library, and see every place it's used throughout this book.  That will give you all sorts of context as you seek to understand what a specific operator might do or mean when used in a certain way.
+
+Well, if I haven't scared you off entirely, let's get cracking!
