@@ -1,4 +1,4 @@
-# Bonus: `loop` and `loopScan`
+# Bonus Build-it: `loop` and `loopScan`
 
 ::: info Draft in progress
 This page is a stub — the walkthrough is on its way.

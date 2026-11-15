@@ -22,7 +22,7 @@ const guideSidebar = [
           { text: 'Creating from Other Values', link: '/guide/observable-universe/creating-observables' },
           { text: 'Subjects', link: '/guide/observable-universe/subjects' },
           { text: 'Wrapping Web APIs', link: '/guide/observable-universe/web-api-wrappers' },
-          { text: 'Bonus: Writing deferAbort', link: '/guide/observable-universe/defer-abort' },
+          { text: 'Bonus Build-it: deferAbort', link: '/guide/observable-universe/defer-abort' },
         ],
       },
       { text: 'Pipeable Operators', link: '/guide/pipeable-operators' },
@@ -36,7 +36,7 @@ const guideSidebar = [
           { text: 'Short-Circuiting', link: '/guide/array-like/short-circuiting' },
           { text: 'Firing on Completion', link: '/guide/array-like/on-completion' },
           { text: 'Combiners and flatMaps', link: '/guide/array-like/combiners-and-flatmaps' },
-          { text: 'Bonus: Writing safeMap', link: '/guide/array-like/safe-map' },
+          { text: 'Bonus Build-it: safeMap', link: '/guide/array-like/safe-map' },
         ],
       },
       {
@@ -48,7 +48,7 @@ const guideSidebar = [
           { text: 'Robustness Operators', link: '/guide/process-management/robustness' },
           { text: 'Combiners, Revisited', link: '/guide/process-management/combiners' },
           { text: 'Timing', link: '/guide/process-management/timing' },
-          { text: 'Bonus: loop and loopScan', link: '/guide/process-management/loop' },
+          { text: 'Bonus Build-it: loop and loopScan', link: '/guide/process-management/loop' },
         ],
       },
       {

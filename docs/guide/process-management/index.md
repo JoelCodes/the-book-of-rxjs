@@ -12,4 +12,4 @@ Once a stream is more than a list of values — once it's a running **process** 
 - [Robustness Operators](/guide/process-management/robustness) — surviving errors and empty streams: `catchError`, `retry`, `repeat`, `timeout`, and friends.
 - [Combiners, Revisited](/guide/process-management/combiners) — the combiner functions and flatMaps again, now with real process-shaped examples.
 - [Timing](/guide/process-management/timing) — operators about _when_ values arrive: debouncing, throttling, delaying, sampling.
-- [Bonus: `loop` and `loopScan`](/guide/process-management/loop) — feeding a stream back into itself.
+- [Bonus Build-it: `loop` and `loopScan`](/guide/process-management/loop) — feeding a stream back into itself.

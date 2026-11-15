@@ -1,4 +1,4 @@
-# Bonus: Writing `safeMap`
+# Bonus Build-it: `safeMap`
 
 ::: info Draft in progress
 This page is a stub — the walkthrough is on its way.

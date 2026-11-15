@@ -15,4 +15,4 @@ We group them by shape:
 - [Short-Circuiting](/guide/array-like/short-circuiting) — operators that stop early once they've seen enough.
 - [Firing on Completion](/guide/array-like/on-completion) — operators that emit only once the source completes.
 - [Combiners and flatMaps](/guide/array-like/combiners-and-flatmaps) — mapping to inner streams and joining them back together.
-- [Bonus: Writing `safeMap`](/guide/array-like/safe-map) — a `map` that won't blow up the stream.
+- [Bonus Build-it: `safeMap`](/guide/array-like/safe-map) — a `map` that won't blow up the stream.
