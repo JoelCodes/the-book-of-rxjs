@@ -187,7 +187,7 @@ A Subscription is also a `TeardownLogic` all its own, so if we return it in that
 ## In this section
 
 - [The Observable Constructor](/guide/observable-universe/observable-constructor) — building one by hand.
-- [Creating Observables from Other Values](/guide/observable-universe/creating-observables) — `of`, `from`, and `defer`.
+- [Creating Observables from Other Values](/guide/observable-universe/creating-observables) — `of`, `from`, `defer`, plus event and callback adapters.
 - [Subjects](/guide/observable-universe/subjects) — Observables that are also Observers.
 - [Wrapping Web APIs](/guide/observable-universe/web-api-wrappers) — `interval`, `timer`, `animationFrames`, `ajax`, `fromFetch`, `WebSocketSubject`.
 - [Bonus Build-it: `deferAbort`](/guide/observable-universe/defer-abort) — a small custom creator, start to finish.
